@@ -130,7 +130,7 @@ def my_v9_N3_squeeze():
 def my_v10_N3_plain_cnn_L14():
     from src.model.my_v10_N3_plain_cnn_L14 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32)
-    convnet.train(dataloader=cifar10, backup_path='backup/my_v10_N3_plain_cnn_L14/', batch_size=64, n_epoch=200)
+    # convnet.train(dataloader=cifar10, backup_path='backup/my_v10_N3_plain_cnn_L14/', batch_size=64, n_epoch=200)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v10_N3_plain_cnn_L14/', epoch=200, batch_size=64)
 
 def my_v11_N1_plain_cnn_L14():
@@ -138,6 +138,74 @@ def my_v11_N1_plain_cnn_L14():
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32, n_layers=44)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v11_N1_plain_cnn_L14/', batch_size=64, n_epoch=200)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v11_N1_plain_cnn_L14/', epoch=200, batch_size=64)
+
+def my_v12_N3_reidual_L44():
+    from src.model.my_v12_N3_reidual_L44 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
+    # convnet.train(dataloader=cifar10, backup_path='backup/my_v12_N3_reidual_L44/', batch_size=64, n_epoch=150)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v12_N3_reidual_L44/', epoch=150, batch_size=64)
+
+def my_v13_N1_reidual_L44():
+    from src.model.my_v13_N1_reidual_L44 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v13_N1_reidual_L44/', batch_size=64, n_epoch=150)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v13_N1_reidual_L44/', epoch=150, batch_size=64)
+
+def my_v14_N5_reidual_L44():
+    from src.model.my_v14_N5_reidual_L44 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
+    # convnet.train(dataloader=cifar10, backup_path='backup/my_v14_N5_reidual_L44/', batch_size=64, n_epoch=150)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v14_N5_reidual_L44/', epoch=150, batch_size=64)
+
+def my_v15_N1_reidual_L32_google_v2():
+    from src.model.my_v15_N1_R_Gv2 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v15_N1_reidual_L32/', batch_size=64, n_epoch=50)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v15_N1_reidual_L32/', epoch=50, batch_size=64)
+
+
+def my_v16_N1_reidual_L32_google_v3():
+    from src.model.my_v16_N1_R_Gv3 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v16_N1_reidual_L32/', batch_size=64, n_epoch=50)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v16_N1_reidual_L32/', epoch=50, batch_size=64)
+
+def my_v17_N1_reidual_L32_plain_L3():
+    from src.model.my_v17_N1_R_L3 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v17_N1_reidual_L32_plain_L3/', batch_size=64, n_epoch=50)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v17_N1_reidual_L32_plain_L3/', epoch=50, batch_size=64)
+
+def my_v18_N3_Mix_before3():
+    from src.model.my_v18_N3_Mix_before3 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
+    # convnet.train(dataloader=cifar10, backup_path='backup/my_v18_N3_Mix_before3/', batch_size=64, n_epoch=50)
+    convnet.test(dataloader=cifar10,backup_path='backup/my_v18_N3_Mix_before3/', epoch=50, batch_size=64)
+
+def my_v19_N9_out9_Mix_before3():
+    from src.model.my_v19_N9_out4_Mix_before3 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v19_N9_out9_Mix_before3/', batch_size=64, n_epoch=50)
+
+    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
+    # convnet.test(dataloader=cifar10,backup_path='backup/my_v19_N9_out9_Mix_before3/', epoch=50, batch_size=64)
+
+
+def my_v20_N9_out5_Mix_before3():
+    from src.model.my_v21_N9_out6_Mix_before3 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v20_N9_out5_Mix_before3/', batch_size=64, n_epoch=50)
+
+    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
+    # convnet.test(dataloader=cifar10,backup_path='backup/my_v20_N9_out5_Mix_before3/', epoch=50, batch_size=64)
+
+def my_v21_N9_out6_Mix_before3():
+    from src.model.my_v21_N9_out6_Mix_before3 import ConvNet
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v21_N9_out6_Mix_before3/', batch_size=64, n_epoch=50)
+
+    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
+    # convnet.test(dataloader=cifar10,backup_path='backup/my_v20_N9_out5_Mix_before3/', epoch=50, batch_size=64)
 
 
 # my_cnn()
@@ -152,4 +220,18 @@ def my_v11_N1_plain_cnn_L14():
 # my_v8_N5_squeeze()
 # my_v9_N3_squeeze()
 # my_v10_N3_plain_cnn_L14()
-my_v11_N1_plain_cnn_L14()
+# my_v11_N1_plain_cnn_L14()
+# my_v12_N3_reidual_L44()
+# my_v13_N1_reidual_L44()
+# my_v14_N5_reidual_L44()
+# my_v15_N1_reidual_L32_google_v2()
+
+# my_v16_N1_reidual_L32_google_v3()
+
+# my_v17_N1_reidual_L32_plain_L3()
+# my_v18_N3_Mix_before3()
+
+# my_v19_N9_out9_Mix_before3()
+my_v21_N9_out6_Mix_before3()
+
+
