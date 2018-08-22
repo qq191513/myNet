@@ -157,8 +157,14 @@ class ConvNet():
         self.logits_2 = dense_layer_2.get_output(input=input_dense_2)
 
 
-        # 子层2--孙1 densenet_bc   -- depth conv L8
+        # 子层2--孙1   -- depth conv L8
         self.logits_2_1 = self.grand_son_2_1(hidden_conv_2, scope_name='grand_son_2_1')
+
+        # 子层2--孙2   -- ddensenet_bc
+        self.logits_2_2 = self.grand_son_2_2(hidden_conv_2, scope_name='grand_son_2_2')
+
+        # 子层2--孙3   -- Fire Model
+        self.logits_2_3 = self.grand_son_2_3(hidden_conv_2, scope_name='grand_son_2_3')
 
 
         # 子层3
@@ -168,35 +174,41 @@ class ConvNet():
         self.logits_3 = dense_layer_3.get_output(input=input_dense_3)
 
         # 目标函数
-        self.objective_1 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_1, labels=self.labels))
-
-        self.objective_1_1 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_1_1, labels=self.labels))
-
-        self.objective_1_2 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_1_2, labels=self.labels))
-
-        self.objective_1_3 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_1_3, labels=self.labels))
-
-
-        self.objective_2 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_2, labels=self.labels))
-
-        self.objective_2_1 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_2_1, labels=self.labels))
-
-
-        self.objective_3 = tf.reduce_sum(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=self.logits_3, labels=self.labels))
+        logits_list=[self.logits_1,self.logits_1_1,self.logits_1_2,self.logits_1_3,
+                    self.logits_2,self.logits_2_1,self.logits_2_2,self.logits_2_3,
+                    self.logits_3
+                    ]
+        self.objective = 0
+        for item in logits_list:
+            self.objective_item = tf.reduce_sum(
+                tf.nn.sparse_softmax_cross_entropy_with_logits(
+                    logits=item, labels=self.labels))
+            self.objective += self.objective_item
+        # self.objective_1_1 = tf.reduce_sum(
+        #     tf.nn.sparse_softmax_cross_entropy_with_logits(
+        #         logits=self.logits_1_1, labels=self.labels))
+        # 
+        # self.objective_1_2 = tf.reduce_sum(
+        #     tf.nn.sparse_softmax_cross_entropy_with_logits(
+        #         logits=self.logits_1_2, labels=self.labels))
+        # 
+        # self.objective_1_3 = tf.reduce_sum(
+        #     tf.nn.sparse_softmax_cross_entropy_with_logits(
+        #         logits=self.logits_1_3, labels=self.labels))
+        # 
+        # 
+        # self.objective_2 = tf.reduce_sum(
+        #     tf.nn.sparse_softmax_cross_entropy_with_logits(
+        #         logits=self.logits_2, labels=self.labels))
+        # 
+        # self.objective_2_1 = tf.reduce_sum(
+        #     tf.nn.sparse_softmax_cross_entropy_with_logits(
+        #         logits=self.logits_2_1, labels=self.labels))
+        # 
+        # 
+        # self.objective_3 = tf.reduce_sum(
+        #     tf.nn.sparse_softmax_cross_entropy_with_logits(
+        #         logits=self.logits_3, labels=self.labels))
 
         # self.objective_4 = tf.reduce_sum(
         #     tf.nn.sparse_softmax_cross_entropy_with_logits(
@@ -206,10 +218,10 @@ class ConvNet():
         #     tf.nn.sparse_softmax_cross_entropy_with_logits(
         #         logits=self.logits_5, labels=self.labels))
 
-        self.objective = \
-            self.objective_1 + self.objective_1_1 +self.objective_1_2 +self.objective_1_3 \
-            +self.objective_2 + self.objective_2_1\
-            +self.objective_3
+        # self.objective = \
+        #     self.objective_1 + self.objective_1_1 +self.objective_1_2 +self.objective_1_3 \
+        #     +self.objective_2 + self.objective_2_1\
+        #     +self.objective_3
 
         tf.add_to_collection('losses', self.objective)
         self.avg_loss = tf.add_n(tf.get_collection('losses'))
@@ -230,15 +242,15 @@ class ConvNet():
         correct_prediction_1 = tf.equal(self.labels, tf.argmax(self.logits_1, 1))
         self.accuracy_1 = tf.reduce_mean(tf.cast(correct_prediction_1, 'float'))
 
-        # 观察值 grand son1
+        # 观察值son1的  grand son1
         correct_prediction_1_1 = tf.equal(self.labels, tf.argmax(self.logits_1_1, 1))
         self.accuracy_1_1 = tf.reduce_mean(tf.cast(correct_prediction_1_1, 'float'))
 
-        # 观察值 grand son2
+        # 观察值son1的  grand son2
         correct_prediction_1_2 = tf.equal(self.labels, tf.argmax(self.logits_1_2, 1))
         self.accuracy_1_2 = tf.reduce_mean(tf.cast(correct_prediction_1_2, 'float'))
 
-        # 观察值 grand son3
+        # 观察值son1的 grand son3
         correct_prediction_1_3 = tf.equal(self.labels, tf.argmax(self.logits_1_3, 1))
         self.accuracy_1_3 = tf.reduce_mean(tf.cast(correct_prediction_1_3, 'float'))
 
@@ -246,20 +258,21 @@ class ConvNet():
         correct_prediction_2 = tf.equal(self.labels, tf.argmax(self.logits_2, 1))
         self.accuracy_2 = tf.reduce_mean(tf.cast(correct_prediction_2, 'float'))
 
-        # 观察值 grand son1
+        # 观察值son2的 grand son1
         correct_prediction_2_1 = tf.equal(self.labels, tf.argmax(self.logits_2_1, 1))
         self.accuracy_2_1 = tf.reduce_mean(tf.cast(correct_prediction_2_1, 'float'))
 
+        # 观察值son2的 grand son2
+        correct_prediction_2_2 = tf.equal(self.labels, tf.argmax(self.logits_2_2, 1))
+        self.accuracy_2_2 = tf.reduce_mean(tf.cast(correct_prediction_2_2, 'float'))
+
+        # 观察值son2的 grand son3
+        correct_prediction_2_3 = tf.equal(self.labels, tf.argmax(self.logits_2_3, 1))
+        self.accuracy_2_3 = tf.reduce_mean(tf.cast(correct_prediction_2_3, 'float'))
 
         # son3
         correct_prediction_3 = tf.equal(self.labels, tf.argmax(self.logits_3, 1))
         self.accuracy_3 = tf.reduce_mean(tf.cast(correct_prediction_3, 'float'))
-
-        # correct_prediction_4 = tf.equal(self.labels, tf.argmax(self.logits_4, 1))
-        # self.accuracy_4 = tf.reduce_mean(tf.cast(correct_prediction_4, 'float'))
-        #
-        # correct_prediction_5 = tf.equal(self.labels, tf.argmax(self.logits_5, 1))
-        # self.accuracy_5 = tf.reduce_mean(tf.cast(correct_prediction_5, 'float'))
 
 
     def grand_son_1_1(self,hidden_conv_1,scope_name):
@@ -467,6 +480,103 @@ class ConvNet():
                             logits = tf.squeeze(logits, [1, 2], name='SpatialSqueeze')
 
         return logits
+    def grand_son_2_2(self, hidden_conv_2_2, scope_name):
+        with tf.variable_scope(scope_name):
+            with slim.arg_scope([slim.conv2d, slim.fully_connected],
+                                activation_fn=None,
+                                normalizer_fn=None,
+                                weights_regularizer=slim.l2_regularizer(0.0004),
+                                weights_initializer=tf.contrib.layers.xavier_initializer(),
+                                biases_initializer=tf.zeros_initializer()):
+                with slim.arg_scope([slim.conv2d, slim.max_pool2d],
+                                    padding='SAME'):
+                    bc_mode =True
+                    dropout_keep_prob = 0.8
+                    with tf.variable_scope("block_3"):
+                        hidden_conv_2_2 = slim.repeat(hidden_conv_2_2, 3, self.add_internal_layer,
+                                                      400, self.is_training,  True, 0.9)
+                        hidden_conv_2_2 = self.transition_layer(hidden_conv_2_2, 600,
+                                                                self.is_training, dropout_keep_prob,0.9)
+                        with tf.variable_scope("trainsition_layer_to_classes"):
+                            logits = self.trainsition_layer_to_classes(hidden_conv_2_2, self.n_classes,
+                                                                       self.is_training)
+                            logits = tf.reshape(logits, [-1, self.n_classes])
+        return logits
+
+    @slim.add_arg_scope
+    def _fire_module(self,inputs,
+                     squeeze_depth,
+                     outputs_collections=None,
+                     scope=None,
+                     use_bypass=False
+                     ):
+        with tf.variable_scope(scope, 'fire', [inputs]) as sc:
+            with slim.arg_scope([slim.conv2d], stride=1, padding='SAME'):
+                expand_depth = squeeze_depth * 4
+                # squeeze
+                squeeze = slim.conv2d(inputs, squeeze_depth, [1, 1], scope="squeeze_1X1")
+
+                # expand
+                expand_1x1 = slim.conv2d(squeeze, expand_depth, [1, 1], scope="expand_1x1")
+                expand_3x3 = slim.conv2d(squeeze, expand_depth, [3, 3], scope="expand_3x3")
+
+                # concat
+                x_ret = tf.concat([expand_1x1, expand_3x3], axis=3)
+
+                # fire 3/5/7/9
+                if use_bypass:
+                    x_ret = x_ret + inputs
+            return slim.utils.collect_named_outputs(outputs_collections, sc.name, x_ret)
+
+    def grand_son_2_3(self, hidden_conv_2_3, scope_name):
+        compression = 1.0
+        use_bypass = False
+        dropout_keep_prob = 0.9
+        global_pool =True
+        spatial_squeeze =True
+        with tf.variable_scope(scope_name) as sc:
+            with slim.arg_scope([slim.conv2d, slim.fully_connected],
+                                activation_fn=None,
+                                normalizer_fn=None,
+                                weights_regularizer=slim.l2_regularizer(0.0004),
+                                weights_initializer=tf.contrib.layers.xavier_initializer(),
+                                biases_initializer=tf.zeros_initializer()):
+                with slim.arg_scope([slim.conv2d, slim.avg_pool2d, slim.max_pool2d, self._fire_module]):
+                    with slim.arg_scope([slim.batch_norm, slim.dropout], is_training=self.is_training):
+                        # fire5
+                        net = self._fire_module(hidden_conv_2_3, int(32 * compression), scope="fire5", use_bypass=use_bypass)
+                        # fire6
+                        net = self._fire_module(net, int(48 * compression), scope="fire6")
+
+                        # fire7
+                        net = self._fire_module(net, int(48 * compression), scope="fire7", use_bypass=use_bypass)
+
+                        # fire8
+                        net = self._fire_module(net, int(64 * compression), scope="fire8")
+
+                        if dropout_keep_prob:
+                            net = slim.dropout(net, keep_prob=dropout_keep_prob, scope="dropout")
+                        ####################################
+                        # conv10
+                        # net = slim.conv2d(net, self.n_classes, [1, 1], activation_fn=None,
+                        #                   normalizer_fn=None, scope='conv10')
+                        #
+                        # with tf.variable_scope('Logits'):
+                        #     # avgpool10
+                        #     if global_pool:
+                        #         # Global average pooling.
+                        #         net = tf.reduce_mean(net, [1, 2], name='pool10', keep_dims=True)
+                        #     # squeeze the axis
+                        #     if spatial_squeeze:
+                        #         logits = tf.squeeze(net, [1, 2], name='SpatialSqueeze')
+                        ##############################
+                        with tf.variable_scope("trainsition_layer_to_classes"):
+                            logits = self.trainsition_layer_to_classes(net, self.n_classes,
+                                                                       self.is_training)
+                            logits = tf.reshape(logits, [-1, self.n_classes])
+                        ###########################
+
+            return logits
 
     def son_cnn_part_3(self, hidden_conv, scope_name):
         with tf.variable_scope(scope_name):
@@ -560,7 +670,7 @@ class ConvNet():
         - wide average pooling
         - FC layer multiplication
         """
-        _output = output = slim.batch_norm(_input, is_training=training)
+        _output = slim.batch_norm(_input, is_training=training)
         # L.scale in caffe
         _output = tf.nn.relu(_output)
         last_pool_kernel = int(_output.get_shape()[-2])
@@ -746,10 +856,11 @@ class ConvNet():
 
         accuracy_2_list = []
         accuracy_2_1_list = []
+        accuracy_2_2_list = []
+        accuracy_2_3_list = []
+
 
         accuracy_3_list = []
-        accuracy_4_list = []
-        accuracy_5_list = []
 
         # 不同决策的准确率列表
         acc_decision_batch_hv2 = []
@@ -758,6 +869,8 @@ class ConvNet():
         acc_decision_batch_hv5 = []
         acc_decision_batch_hv6 = []
         acc_decision_batch_hv7 = []
+        acc_decision_batch_hv8 = []
+        acc_decision_batch_hv9 = []
 
         #不预测的总数量
 
@@ -767,28 +880,31 @@ class ConvNet():
         aborted_num_total_hv5 = 0
         aborted_num_total_hv6 = 0
         aborted_num_total_hv7 = 0
-
+        aborted_num_total_hv8 = 0
+        aborted_num_total_hv9 = 0
         # acc_decision_batchs = numpy.float32(.0)
 
         batchs_number = 0
         for i in range(0, n_test, batch_size):
-            print('batch_size %d '%i)
+
+            print('batchs_number: %d  , i: %d' % (batchs_number,i))
             batch_images = test_images[i: i + batch_size]
             batch_labels = test_labels[i: i + batch_size]
 
             [labels_array,
              avg_accuracy_1, avg_accuracy_1_1,avg_accuracy_1_2,avg_accuracy_1_3,
-             avg_accuracy_2, avg_accuracy_2_1,
+             avg_accuracy_2, avg_accuracy_2_1,avg_accuracy_2_2,avg_accuracy_2_3,
              avg_accuracy_3,
              logits_1, logits_1_1,logits_1_2,logits_1_3,
-             logits_2, logits_2_1,
-             logits_3] = self.sess.run(
+             logits_2, logits_2_1,logits_2_2,logits_2_3,
+             logits_3
+             ] = self.sess.run(
                 fetches=[self.labels,
                          self.accuracy_1, self.accuracy_1_1,self.accuracy_1_2,self.accuracy_1_3,
-                         self.accuracy_2, self.accuracy_2_1,
+                         self.accuracy_2, self.accuracy_2_1,self.accuracy_2_2,self.accuracy_2_3,
                          self.accuracy_3,
                          self.logits_1,self.logits_1_1,self.logits_1_2,self.logits_1_3,
-                         self.logits_2,self.logits_2_1,
+                         self.logits_2,self.logits_2_1,self.logits_2_2,self.logits_2_3,
                          self.logits_3],
                 feed_dict={self.images: batch_images,
                            self.labels: batch_labels,
@@ -801,6 +917,8 @@ class ConvNet():
 
             accuracy_2_list.append(avg_accuracy_2)
             accuracy_2_1_list.append(avg_accuracy_2_1)
+            accuracy_2_2_list.append(avg_accuracy_2_2)
+            accuracy_2_3_list.append(avg_accuracy_2_3)
 
             accuracy_3_list.append(avg_accuracy_3)
 
@@ -811,6 +929,8 @@ class ConvNet():
 
             predict_2 = self.sess.run(tf.argmax(logits_2, axis=1))
             predict_2_1 = self.sess.run(tf.argmax(logits_2_1, axis=1))
+            predict_2_2 = self.sess.run(tf.argmax(logits_2_2, axis=1))
+            predict_2_3 = self.sess.run(tf.argmax(logits_2_3, axis=1))
 
             predict_3 = self.sess.run(tf.argmax(logits_3, axis=1))
             # predict_4 = self.sess.run(tf.argmax(logits_4, axis=1))
@@ -818,7 +938,7 @@ class ConvNet():
 
             # 几列预测值拼接成矩阵
             merrge_array = np.concatenate([[predict_1],[predict_1_1],[predict_1_2],[predict_1_3],
-                                           [predict_2], [predict_2_1],
+                                           [predict_2],[predict_2_1],[predict_2_2],[predict_2_3],
                                            [predict_3]
                                            ], axis=0)
 
@@ -832,6 +952,8 @@ class ConvNet():
             final_batch_predict_hv5 = []
             final_batch_predict_hv6 = []
             final_batch_predict_hv7 = []
+            final_batch_predict_hv8 = []
+            final_batch_predict_hv9 = []
 
 
             delete_off_v2 = 0
@@ -840,6 +962,8 @@ class ConvNet():
             delete_off_v5 = 0
             delete_off_v6 = 0
             delete_off_v7 = 0
+            delete_off_v8 = 0
+            delete_off_v9 = 0
 
 
             labels_array_hv2 = labels_array
@@ -848,6 +972,8 @@ class ConvNet():
             labels_array_hv5 = labels_array
             labels_array_hv6 = labels_array
             labels_array_hv7 = labels_array
+            labels_array_hv8 = labels_array
+            labels_array_hv9 = labels_array
 
             aborted_num_hv2 = 0
             aborted_num_hv3 = 0
@@ -855,6 +981,9 @@ class ConvNet():
             aborted_num_hv5 = 0
             aborted_num_hv6 = 0
             aborted_num_hv7 = 0
+            aborted_num_hv8 = 0
+            aborted_num_hv9 = 0
+            
             for row in range(0, rows):
                 result = all_np(merrge_array[row])  # 统计行个数
                 max_key = find_dict_max_key(result)  # 找到每行出现次数最多那个键值就是预测值
@@ -899,6 +1028,20 @@ class ConvNet():
                     aborted_num_hv7 += 1  # 计算当前这一批拒绝预测的次数
                 else:
                     final_batch_predict_hv7.append(max_key)  # 预测值存到列表里面
+
+                if result[max_key] < 8:  # 拒绝就要删对应标签，方便后面做对比
+                    labels_array_hv8 = np.delete(labels_array_hv8, row - delete_off_v8, axis=0)
+                    delete_off_v8 += 1  # 删除后的偏移位置
+                    aborted_num_hv8 += 1  # 计算当前这一批拒绝预测的次数
+                else:
+                    final_batch_predict_hv8.append(max_key)  # 预测值存到列表里面
+
+                if result[max_key] < 9:  # 拒绝就要删对应标签，方便后面做对比
+                    labels_array_hv9 = np.delete(labels_array_hv9, row - delete_off_v9, axis=0)
+                    delete_off_v9 += 1  # 删除后的偏移位置
+                    aborted_num_hv9 += 1  # 计算当前这一批拒绝预测的次数
+                else:
+                    final_batch_predict_hv9.append(max_key)  # 预测值存到列表里面
 
             batchs_number = batchs_number + 1
             # 列表转数组
@@ -954,6 +1097,22 @@ class ConvNet():
             if np.isnan(hv7) == False:
                 acc_decision_batch_hv7.append(hv7)
 
+            hv8 = get_acc_decision_batch(
+                labels_array_hv8, final_batch_predict_hv8)
+            print('hv8 %f aborted_num:%d ' % (hv8, aborted_num_hv8))
+            aborted_num_total_hv8 += aborted_num_hv8  # 计算拒绝预测的次数总和
+            if np.isnan(hv8) == False:
+                acc_decision_batch_hv8.append(hv8)
+
+            hv9 = get_acc_decision_batch(
+                labels_array_hv9, final_batch_predict_hv9)
+            print('hv9 %f aborted_num:%d ' % (hv9, aborted_num_hv9))
+            aborted_num_total_hv9 += aborted_num_hv9  # 计算拒绝预测的次数总和
+            if np.isnan(hv9) == False:
+                acc_decision_batch_hv9.append(hv9)
+
+            print()
+            
         acc_decision_batch_dict = {}
         acc_decision_batch_dict['acc_decision_batch_hv2']= acc_decision_batch_hv2
         acc_decision_batch_dict['acc_decision_batch_hv3']= acc_decision_batch_hv3
@@ -961,6 +1120,8 @@ class ConvNet():
         acc_decision_batch_dict['acc_decision_batch_hv5']= acc_decision_batch_hv5
         acc_decision_batch_dict['acc_decision_batch_hv6'] =acc_decision_batch_hv6
         acc_decision_batch_dict['acc_decision_batch_hv7'] =acc_decision_batch_hv7
+        acc_decision_batch_dict['acc_decision_batch_hv8'] =acc_decision_batch_hv8
+        acc_decision_batch_dict['acc_decision_batch_hv9'] =acc_decision_batch_hv9
 
         acc_decision_batch_dict['aborted_num_hv2'] =aborted_num_total_hv2
         acc_decision_batch_dict['aborted_num_hv3'] =aborted_num_total_hv3
@@ -968,9 +1129,11 @@ class ConvNet():
         acc_decision_batch_dict['aborted_num_hv5'] =aborted_num_total_hv5
         acc_decision_batch_dict['aborted_num_hv6'] =aborted_num_total_hv6
         acc_decision_batch_dict['aborted_num_hv7'] =aborted_num_total_hv7
+        acc_decision_batch_dict['aborted_num_hv8'] =aborted_num_total_hv8
+        acc_decision_batch_dict['aborted_num_hv9'] =aborted_num_total_hv9
 
         return accuracy_1_list,accuracy_1_1_list,accuracy_1_2_list,accuracy_1_3_list, \
-               accuracy_2_list,accuracy_2_1_list, \
+               accuracy_2_list,accuracy_2_1_list,accuracy_2_2_list,accuracy_2_3_list,\
                accuracy_3_list, \
          acc_decision_batch_dict
 
@@ -981,8 +1144,12 @@ class ConvNet():
             os.makedirs(backup_path)
 
         # 构建会话
-        gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
-        self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
+        self.sess = tf.Session(config=config)
+
+        # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
+        # self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
         # 模型保存器
         self.saver = tf.train.Saver(
             var_list=tf.global_variables(), write_version=tf.train.SaverDef.V2, 
@@ -1034,7 +1201,7 @@ class ConvNet():
             # 获取验证准确率列表
             if epoch % 5 == 0:
                 accuracy_1_list,accuracy_1_1_list,accuracy_1_2_list,accuracy_1_3_list, \
-                accuracy_2_list,accuracy_2_1_list, \
+                accuracy_2_list,accuracy_2_1_list,accuracy_2_2_list,accuracy_2_3_list, \
                 accuracy_3_list, \
                 acc_decision_batch_dict = \
                     self.get_5_acc_list(valid_images,valid_labels,dataloader.n_valid,batch_size,True)
@@ -1047,6 +1214,9 @@ class ConvNet():
 
                 message_2 = ' net2: %.4f' % (np.mean(accuracy_2_list))
                 message_2_1 = ' net2_1: %.4f\n' % (np.mean(accuracy_2_1_list))
+                message_2_2 = ' net2_2: %.4f\n' % (np.mean(accuracy_2_2_list))
+                message_2_3 = ' net2_3: %.4f\n' % (np.mean(accuracy_2_3_list))
+                
 
                 message_3 = ' net3: %.4f\n' % (np.mean(accuracy_3_list))
 
@@ -1063,13 +1233,17 @@ class ConvNet():
                     np.mean(acc_decision_batch_dict['acc_decision_batch_hv6']))
                 message_hv7 = ' acc_decision_batch_hv7: %.4f\n' % (
                     np.mean(acc_decision_batch_dict['acc_decision_batch_hv7']))
+                message_hv8 = ' acc_decision_batch_hv8: %.4f\n' % (
+                    np.mean(acc_decision_batch_dict['acc_decision_batch_hv8']))
+                message_hv9 = ' acc_decision_batch_hv9: %.4f\n' % (
+                    np.mean(acc_decision_batch_dict['acc_decision_batch_hv9']))
 
-                print_and_save_txt(str=message_epoch +
-                                       message_1 + message_1_1 + message_1_2+ message_1_3
-                                       +message_2+ message_2_1+
-                                       message_3+
+                print_and_save_txt(str=message_epoch
+                                       +message_1 + message_1_1 + message_1_2+ message_1_3
+                                       +message_2+ message_2_1+message_2_2+message_2_3
+                                       +message_3+
                                        message_hv2+message_hv3+message_hv4+message_hv5
-                                        +message_hv6+message_hv7,
+                                        +message_hv6+message_hv7+message_hv8+message_hv9,
                                    filename=os.path.join(backup_path, 'train_log.txt'))
             # 保存模型
             if epoch % 10 == 0 :
@@ -1106,7 +1280,7 @@ class ConvNet():
 
         #获取全部准确率列表
         accuracy_1_list,accuracy_1_1_list,accuracy_1_2_list,accuracy_1_3_list,\
-        accuracy_2_list,accuracy_2_1_list, \
+        accuracy_2_list,accuracy_2_1_list,accuracy_2_2_list,accuracy_2_3_list, \
         accuracy_3_list, \
         acc_decision_batch_dict =\
             self.get_5_acc_list(test_images, test_labels, dataloader.n_test, batch_size,is_train =False)
@@ -1118,7 +1292,9 @@ class ConvNet():
         message_1_3 = ' net1_3: %.4f\n' % (np.mean(accuracy_1_3_list))
 
         message_2 = ' net2: %.4f' % (np.mean(accuracy_2_list))
-        message_2_1 = ' net2_1: %.4f\n' % (np.mean(accuracy_2_1_list))
+        message_2_1 = ' net2_1: %.4f' % (np.mean(accuracy_2_1_list))
+        message_2_2 = ' net2_2: %.4f' % (np.mean(accuracy_2_2_list))
+        message_2_3 = ' net2_3: %.4f\n' % (np.mean(accuracy_2_3_list))
 
         message_3 = ' net3: %.4f\n' % (np.mean(accuracy_3_list))
 
@@ -1134,22 +1310,30 @@ class ConvNet():
             np.mean(acc_decision_batch_dict['acc_decision_batch_hv6']))
         message_hv7 = ' acc_decision_batch_hv7: %.4f\n' % (
             np.mean(acc_decision_batch_dict['acc_decision_batch_hv7']))
+        message_hv8 = ' acc_decision_batch_hv8: %.4f\n' % (
+            np.mean(acc_decision_batch_dict['acc_decision_batch_hv8']))
+        message_hv9 = ' acc_decision_batch_hv9: %.4f\n' % (
+            np.mean(acc_decision_batch_dict['acc_decision_batch_hv9']))
         print_and_save_txt(str=  message_1 + message_1_1 + message_1_2+message_1_3
-                               + message_2 +message_2_1
-                               +message_3 +
-                               message_hv2 + message_hv3 + message_hv4 + message_hv5
-                           +message_hv6+message_hv7,
+                               + message_2 +message_2_1 +message_2_2  +message_2_3
+                               +message_3
+                               +message_hv2 + message_hv3 + message_hv4 + message_hv5
+                               +message_hv6 + message_hv7 + message_hv8 + message_hv9,
                            filename=os.path.join(backup_path, 'test_log.txt'))
 
 
         print_and_save_txt('aborted_num_hv2 {} aborted_num_hv3 {} aborted_num_hv4 {}\n'
                            'aborted_num_hv5 {} aborted_num_hv6 {} aborted_num_hv7 {}\n'
+                           'aborted_num_hv8 {} aborted_num_hv9 {}\n'
                            .format(acc_decision_batch_dict['aborted_num_hv2'],
                                 acc_decision_batch_dict['aborted_num_hv3']),
                                 acc_decision_batch_dict['aborted_num_hv4'],
                                 acc_decision_batch_dict['aborted_num_hv5'],
                                 acc_decision_batch_dict['aborted_num_hv6'],
                                 acc_decision_batch_dict['aborted_num_hv7'],
+                                acc_decision_batch_dict['aborted_num_hv8'],
+                                acc_decision_batch_dict['aborted_num_hv9'],
+
                            filename=os.path.join(backup_path, 'test_log.txt'))
 
         #########  parameters numbers###########
