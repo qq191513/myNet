@@ -1,0 +1,65 @@
+epoch: 115 , global_step: 3520 
+net1: 0.7634 net2: 0.7745 net3: 0.7745 net4: 0.0939 net5: 0.0939 decision_prediction: 0.7488
+epoch: 0 , global_step: 704 
+net1: 0.4626 net2: 0.4565 net3: 0.4468 net4: 0.4450 net5: 0.4300 decision_prediction: 0.4662
+epoch: 5 , global_step: 4224 
+net1: 0.7771 net2: 0.7737 net3: 0.7907 net4: 0.7751 net5: 0.7923 decision_prediction: 0.8097
+epoch: 10 , global_step: 7744 
+net1: 0.8337 net2: 0.8170 net3: 0.8331 net4: 0.8269 net5: 0.8303 decision_prediction: 0.8530
+epoch: 15 , global_step: 11264 
+net1: 0.8477 net2: 0.8382 net3: 0.8471 net4: 0.8422 net5: 0.8350 decision_prediction: 0.8672
+epoch: 20 , global_step: 14784 
+net1: 0.8495 net2: 0.8414 net3: 0.8386 net4: 0.8426 net5: 0.8544 decision_prediction: 0.8726
+epoch: 25 , global_step: 18304 
+net1: 0.8588 net2: 0.8493 net3: 0.8558 net4: 0.8538 net5: 0.8602 decision_prediction: 0.8803
+epoch: 30 , global_step: 21824 
+net1: 0.8655 net2: 0.8635 net3: 0.8604 net4: 0.8578 net5: 0.8641 decision_prediction: 0.8925
+epoch: 35 , global_step: 25344 
+net1: 0.8714 net2: 0.8655 net3: 0.8746 net4: 0.8651 net5: 0.8649 decision_prediction: 0.9004
+epoch: 40 , global_step: 28864 
+net1: 0.8705 net2: 0.8685 net3: 0.8722 net4: 0.8641 net5: 0.8683 decision_prediction: 0.9007
+epoch: 45 , global_step: 32384 
+net1: 0.8744 net2: 0.8685 net3: 0.8754 net4: 0.8687 net5: 0.8750 decision_prediction: 0.9023
+epoch: 50 , global_step: 35904 
+net1: 0.8649 net2: 0.8612 net3: 0.8647 net4: 0.8738 net5: 0.8691 decision_prediction: 0.8979
+epoch: 55 , global_step: 39424 
+net1: 0.8762 net2: 0.8679 net3: 0.8726 net4: 0.8705 net5: 0.8681 decision_prediction: 0.9029
+epoch: 60 , global_step: 42944 
+net1: 0.8645 net2: 0.8657 net3: 0.8780 net4: 0.8710 net5: 0.8714 decision_prediction: 0.8987
+epoch: 65 , global_step: 46464 
+net1: 0.8716 net2: 0.8691 net3: 0.8764 net4: 0.8716 net5: 0.8669 decision_prediction: 0.9043
+epoch: 70 , global_step: 49984 
+net1: 0.8764 net2: 0.8736 net3: 0.8740 net4: 0.8641 net5: 0.8673 decision_prediction: 0.9029
+epoch: 75 , global_step: 53504 
+net1: 0.8865 net2: 0.8871 net3: 0.8918 net4: 0.8861 net5: 0.8867 decision_prediction: 0.9117
+epoch: 80 , global_step: 57024 
+net1: 0.8950 net2: 0.8908 net3: 0.8879 net4: 0.8892 net5: 0.8888 decision_prediction: 0.9195
+epoch: 85 , global_step: 60544 
+net1: 0.8916 net2: 0.8940 net3: 0.8979 net4: 0.8942 net5: 0.8916 decision_prediction: 0.9221
+epoch: 90 , global_step: 64064 
+net1: 0.8890 net2: 0.8857 net3: 0.8966 net4: 0.8962 net5: 0.8881 decision_prediction: 0.9252
+epoch: 95 , global_step: 67584 
+net1: 0.8839 net2: 0.8877 net3: 0.9011 net4: 0.8904 net5: 0.8914 decision_prediction: 0.9211
+epoch: 100 , global_step: 71104 
+net1: 0.8892 net2: 0.8877 net3: 0.8924 net4: 0.8883 net5: 0.8924 decision_prediction: 0.9223
+epoch: 105 , global_step: 74624 
+net1: 0.8922 net2: 0.8896 net3: 0.8983 net4: 0.8970 net5: 0.8865 decision_prediction: 0.9220
+epoch: 110 , global_step: 78144 
+net1: 0.9064 net2: 0.9064 net3: 0.9096 net4: 0.9005 net5: 0.9015 decision_prediction: 0.9284
+epoch: 115 , global_step: 81664 
+net1: 0.9100 net2: 0.9088 net3: 0.9106 net4: 0.9043 net5: 0.9029 decision_prediction: 0.9322
+epoch: 120 , global_step: 85184 
+net1: 0.9090 net2: 0.9074 net3: 0.9102 net4: 0.9039 net5: 0.9061 decision_prediction: 0.9343
+epoch: 125 , global_step: 88704 
+net1: 0.9088 net2: 0.9033 net3: 0.9138 net4: 0.9082 net5: 0.9068 decision_prediction: 0.9321
+epoch: 130 , global_step: 92224 
+net1: 0.9062 net2: 0.9094 net3: 0.9153 net4: 0.9062 net5: 0.9098 decision_prediction: 0.9341
+epoch: 135 , global_step: 95744 
+net1: 0.9051 net2: 0.9084 net3: 0.9153 net4: 0.9035 net5: 0.9043 decision_prediction: 0.9294
+epoch: 140 , global_step: 99264 
+net1: 0.9045 net2: 0.9017 net3: 0.9086 net4: 0.9035 net5: 0.9047 decision_prediction: 0.9300
+epoch: 145 , global_step: 102784 
+net1: 0.9037 net2: 0.9025 net3: 0.9171 net4: 0.9035 net5: 0.9051 decision_prediction: 0.9325
+epoch: 150 , global_step: 106304 
+net1: 0.9021 net2: 0.9114 net3: 0.9173 net4: 0.9041 net5: 0.9003 decision_prediction: 0.9288
+The code run 22h 48m 52s

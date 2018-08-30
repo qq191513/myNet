@@ -1,0 +1,2 @@
+test result: 
+net1: 0.8274xxxxxxxxxxxxxx parament numbers is : 170268 xxxxxxxxxxxxxxx

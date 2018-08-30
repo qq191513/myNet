@@ -1,0 +1,15 @@
+test result: 
+net1: 0.8746 net2: 0.8785 net3: 0.8742 decision_prediction: 0.8987
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8722 net2: 0.8754 net3: 0.8766 decision_prediction: 0.9005
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8773 net2: 0.8746 net3: 0.8723 decision_prediction: 0.8983
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8863 net2: 0.8908 net3: 0.8881 decision_prediction: 0.9104
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8893 net2: 0.8899 net3: 0.8869 decision_prediction: 0.9202
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8899 net2: 0.8867 net3: 0.8861 decision_prediction: 0.9228
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8870 net2: 0.8906 net3: 0.8913 decision_prediction: 0.9227
+xxxxxxxxxxxxxx parament numbers is : 31459126 xxxxxxxxxxxxxxx

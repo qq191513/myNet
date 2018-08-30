@@ -1,0 +1,13 @@
+epoch: 0 , global_step: 704 
+net1: 0.4446 net1_1: 0.4743 net1_2: 0.4462 net1_3: 0.4595
+ net2: 0.4169 net2_1: 0.4282 net2_2: 0.4244 net2_3: 0.3635
+ net3: 0.3410 net3_1: 0.3693
+ acc_decision_batch_hv2: 0.4628
+ acc_decision_batch_hv3: 0.4632
+ acc_decision_batch_hv4: 0.4691
+ acc_decision_batch_hv5: 0.4864
+ acc_decision_batch_hv6: 0.5206
+ acc_decision_batch_hv7: 0.5537
+ acc_decision_batch_hv8: 0.5942
+ acc_decision_batch_hv9: 0.6478
+ acc_decision_batch_hv10: 0.6960

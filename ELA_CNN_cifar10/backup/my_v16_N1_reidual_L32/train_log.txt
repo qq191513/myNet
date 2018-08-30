@@ -1,0 +1,12 @@
+epoch: 0 , global_step: 704
+net1: 0.3693
+epoch: 5 , global_step: 4224
+net1: 0.7820
+epoch: 10 , global_step: 7744
+net1: 0.8214
+epoch: 15 , global_step: 11264
+net1: 0.8275
+epoch: 20 , global_step: 14784
+net1: 0.8467
+epoch: 25 , global_step: 18304
+net1: 0.8519

@@ -1,0 +1,63 @@
+epoch: 0 , global_step: 704
+net1: 0.4391
+epoch: 5 , global_step: 4224
+net1: 0.7789
+epoch: 10 , global_step: 7744
+net1: 0.8259
+epoch: 15 , global_step: 11264
+net1: 0.8350
+epoch: 20 , global_step: 14784
+net1: 0.8588
+epoch: 25 , global_step: 18304
+net1: 0.8499
+epoch: 30 , global_step: 21824
+net1: 0.8627
+epoch: 35 , global_step: 25344
+net1: 0.8594
+epoch: 40 , global_step: 28864
+net1: 0.8665
+epoch: 45 , global_step: 32384
+net1: 0.8752
+epoch: 50 , global_step: 35904
+net1: 0.8671
+epoch: 55 , global_step: 39424
+net1: 0.8667
+epoch: 60 , global_step: 42944
+net1: 0.8740
+epoch: 65 , global_step: 46464
+net1: 0.8754
+epoch: 70 , global_step: 49984
+net1: 0.8758
+epoch: 75 , global_step: 53504
+net1: 0.8948
+epoch: 80 , global_step: 57024
+net1: 0.8934
+epoch: 85 , global_step: 60544
+net1: 0.8932
+epoch: 90 , global_step: 64064
+net1: 0.8894
+epoch: 95 , global_step: 67584
+net1: 0.8873
+epoch: 100 , global_step: 71104
+net1: 0.8863
+epoch: 105 , global_step: 74624
+net1: 0.8922
+epoch: 110 , global_step: 78144
+net1: 0.8896
+epoch: 115 , global_step: 81664
+net1: 0.8888
+epoch: 120 , global_step: 85184
+net1: 0.8908
+epoch: 125 , global_step: 88704
+net1: 0.8886
+epoch: 130 , global_step: 92224
+net1: 0.8908
+epoch: 135 , global_step: 95744
+net1: 0.8920
+epoch: 140 , global_step: 99264
+net1: 0.8972
+epoch: 145 , global_step: 102784
+net1: 0.9090
+epoch: 150 , global_step: 106304
+net1: 0.9090
+The code run 2h 52m 10s

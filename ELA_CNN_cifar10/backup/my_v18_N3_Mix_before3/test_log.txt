@@ -1,0 +1,7 @@
+test result: 
+net1: 0.8463 net2: 0.8517 net3: 0.8346aborted_num_hv2 347 
+xxxxxxxxxxxxxx parament numbers is : 24453032 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8486 net2: 0.8525 net3: 0.8384 acc_decision_batch_hv2: 0.8909
+ acc_decision_batch_hv3: 0.9590
+aborted_num_hv2 352 
+xxxxxxxxxxxxxx parament numbers is : 24453032 xxxxxxxxxxxxxxx

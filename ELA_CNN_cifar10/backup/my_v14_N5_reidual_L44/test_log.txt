@@ -1,0 +1,9 @@
+test result: 
+net1: 0.8940 net2: 0.8940 net3: 0.8974 net4: 0.8940 net4: 0.8950 decision_prediction: 0.9205
+xxxxxxxxxxxxxx parament numbers is : 52431818 xxxxxxxxxxxxxxxtest result: 
+net1: 0.8922 net2: 0.8964 net3: 0.8926 net4: 0.8964 net4: 0.8922 acc_decision_batch_hv2: 0.9212
+ acc_decision_batch_hv3: 0.9345
+ acc_decision_batch_hv4: 0.9626
+ acc_decision_batch_hv5: 0.9839
+aborted_num_hv2 2 aborted_num_hv3 224 aborted_num_hv4 1009 aborted_num_hv5 2129
+xxxxxxxxxxxxxx parament numbers is : 52431818 xxxxxxxxxxxxxxx

@@ -1,0 +1,467 @@
+epoch: 0 , global_step: 704 
+net1: 0.5062 net1_1: 0.5132 net1_2: 0.5293 net1_3: 0.5289
+ net2: 0.4257 net2_1: 0.4562 net2_2: 0.4616 net2_3: 0.4358
+ net3: 0.4511 net3_1: 0.4804 net3_2: 0.4800 net3_3: 0.4679
+ acc_decision_batch_hv2: 0.5121
+ acc_decision_batch_hv3: 0.5121
+ acc_decision_batch_hv4: 0.5143
+ acc_decision_batch_hv5: 0.5228
+ acc_decision_batch_hv6: 0.5298
+ acc_decision_batch_hv7: 0.5490
+ acc_decision_batch_hv8: 0.5598
+ acc_decision_batch_hv9: 0.5959
+ acc_decision_batch_hv10: 0.6064
+ acc_decision_batch_hv11: 0.6296
+ acc_decision_batch_hv12: 0.6220
+epoch: 5 , global_step: 4224 
+net1: 0.7818 net1_1: 0.7771 net1_2: 0.7806 net1_3: 0.7713
+ net2: 0.7897 net2_1: 0.7963 net2_2: 0.7862 net2_3: 0.7916
+ net3: 0.8089 net3_1: 0.8065 net3_2: 0.8139 net3_3: 0.8080
+ acc_decision_batch_hv2: 0.8237
+ acc_decision_batch_hv3: 0.8237
+ acc_decision_batch_hv4: 0.8237
+ acc_decision_batch_hv5: 0.8295
+ acc_decision_batch_hv6: 0.8339
+ acc_decision_batch_hv7: 0.8443
+ acc_decision_batch_hv8: 0.8622
+ acc_decision_batch_hv9: 0.9014
+ acc_decision_batch_hv10: 0.9140
+ acc_decision_batch_hv11: 0.9169
+ acc_decision_batch_hv12: 0.9388
+epoch: 10 , global_step: 7744 
+net1: 0.8327 net1_1: 0.8397 net1_2: 0.8350 net1_3: 0.8377
+ net2: 0.8057 net2_1: 0.8225 net2_2: 0.8171 net2_3: 0.8076
+ net3: 0.8260 net3_1: 0.8245 net3_2: 0.8303 net3_3: 0.8362
+ acc_decision_batch_hv2: 0.8507
+ acc_decision_batch_hv3: 0.8507
+ acc_decision_batch_hv4: 0.8507
+ acc_decision_batch_hv5: 0.8579
+ acc_decision_batch_hv6: 0.8643
+ acc_decision_batch_hv7: 0.8827
+ acc_decision_batch_hv8: 0.8906
+ acc_decision_batch_hv9: 0.9195
+ acc_decision_batch_hv10: 0.9313
+ acc_decision_batch_hv11: 0.9363
+ acc_decision_batch_hv12: 0.9466
+epoch: 15 , global_step: 11264 
+net1: 0.8416 net1_1: 0.8412 net1_2: 0.8350 net1_3: 0.8412
+ net2: 0.8440 net2_1: 0.8346 net2_2: 0.8330 net2_3: 0.8436
+ net3: 0.8365 net3_1: 0.8447 net3_2: 0.8408 net3_3: 0.8443
+ acc_decision_batch_hv2: 0.8670
+ acc_decision_batch_hv3: 0.8670
+ acc_decision_batch_hv4: 0.8670
+ acc_decision_batch_hv5: 0.8724
+ acc_decision_batch_hv6: 0.8754
+ acc_decision_batch_hv7: 0.8782
+ acc_decision_batch_hv8: 0.9014
+ acc_decision_batch_hv9: 0.9242
+ acc_decision_batch_hv10: 0.9400
+ acc_decision_batch_hv11: 0.9468
+ acc_decision_batch_hv12: 0.9557
+epoch: 20 , global_step: 14784 
+net1: 0.8393 net1_1: 0.8479 net1_2: 0.8542 net1_3: 0.8358
+ net2: 0.8530 net2_1: 0.8620 net2_2: 0.8534 net2_3: 0.8600
+ net3: 0.8530 net3_1: 0.8584 net3_2: 0.8545 net3_3: 0.8467
+ acc_decision_batch_hv2: 0.8709
+ acc_decision_batch_hv3: 0.8709
+ acc_decision_batch_hv4: 0.8709
+ acc_decision_batch_hv5: 0.8762
+ acc_decision_batch_hv6: 0.8844
+ acc_decision_batch_hv7: 0.8925
+ acc_decision_batch_hv8: 0.9166
+ acc_decision_batch_hv9: 0.9430
+ acc_decision_batch_hv10: 0.9633
+ acc_decision_batch_hv11: 0.9730
+ acc_decision_batch_hv12: 0.9775
+epoch: 25 , global_step: 18304 
+net1: 0.8491 net1_1: 0.8698 net1_2: 0.8683 net1_3: 0.8596
+ net2: 0.8690 net2_1: 0.8761 net2_2: 0.8741 net2_3: 0.8585
+ net3: 0.8702 net3_1: 0.8886 net3_2: 0.8886 net3_3: 0.8800
+ acc_decision_batch_hv2: 0.8984
+ acc_decision_batch_hv3: 0.8984
+ acc_decision_batch_hv4: 0.8984
+ acc_decision_batch_hv5: 0.9053
+ acc_decision_batch_hv6: 0.9082
+ acc_decision_batch_hv7: 0.9191
+ acc_decision_batch_hv8: 0.9293
+ acc_decision_batch_hv9: 0.9463
+ acc_decision_batch_hv10: 0.9531
+ acc_decision_batch_hv11: 0.9593
+ acc_decision_batch_hv12: 0.9701
+epoch: 30 , global_step: 21824 
+net1: 0.8776 net1_1: 0.8991 net1_2: 0.8870 net1_3: 0.8909
+ net2: 0.8874 net2_1: 0.8792 net2_2: 0.8744 net2_3: 0.8733
+ net3: 0.8807 net3_1: 0.8932 net3_2: 0.8936 net3_3: 0.8999
+ acc_decision_batch_hv2: 0.9108
+ acc_decision_batch_hv3: 0.9108
+ acc_decision_batch_hv4: 0.9108
+ acc_decision_batch_hv5: 0.9179
+ acc_decision_batch_hv6: 0.9196
+ acc_decision_batch_hv7: 0.9268
+ acc_decision_batch_hv8: 0.9284
+ acc_decision_batch_hv9: 0.9624
+ acc_decision_batch_hv10: 0.9695
+ acc_decision_batch_hv11: 0.9744
+ acc_decision_batch_hv12: 0.9827
+epoch: 35 , global_step: 25344 
+net1: 0.8768 net1_1: 0.8749 net1_2: 0.8772 net1_3: 0.8768
+ net2: 0.8995 net2_1: 0.8839 net2_2: 0.8780 net2_3: 0.8835
+ net3: 0.8819 net3_1: 0.8999 net3_2: 0.8964 net3_3: 0.8901
+ acc_decision_batch_hv2: 0.9015
+ acc_decision_batch_hv3: 0.9015
+ acc_decision_batch_hv4: 0.9015
+ acc_decision_batch_hv5: 0.9104
+ acc_decision_batch_hv6: 0.9197
+ acc_decision_batch_hv7: 0.9289
+ acc_decision_batch_hv8: 0.9376
+ acc_decision_batch_hv9: 0.9621
+ acc_decision_batch_hv10: 0.9706
+ acc_decision_batch_hv11: 0.9802
+ acc_decision_batch_hv12: 0.9842
+epoch: 40 , global_step: 28864 
+net1: 0.8917 net1_1: 0.8999 net1_2: 0.8944 net1_3: 0.9006
+ net2: 0.8792 net2_1: 0.8811 net2_2: 0.8874 net2_3: 0.8858
+ net3: 0.9058 net3_1: 0.9058 net3_2: 0.9081 net3_3: 0.9019
+ acc_decision_batch_hv2: 0.9132
+ acc_decision_batch_hv3: 0.9132
+ acc_decision_batch_hv4: 0.9132
+ acc_decision_batch_hv5: 0.9203
+ acc_decision_batch_hv6: 0.9240
+ acc_decision_batch_hv7: 0.9325
+ acc_decision_batch_hv8: 0.9455
+ acc_decision_batch_hv9: 0.9725
+ acc_decision_batch_hv10: 0.9810
+ acc_decision_batch_hv11: 0.9807
+ acc_decision_batch_hv12: 0.9823
+epoch: 45 , global_step: 32384 
+net1: 0.9073 net1_1: 0.8889 net1_2: 0.8889 net1_3: 0.8792
+ net2: 0.8897 net2_1: 0.8780 net2_2: 0.8776 net2_3: 0.8819
+ net3: 0.9015 net3_1: 0.8995 net3_2: 0.8995 net3_3: 0.9015
+ acc_decision_batch_hv2: 0.9132
+ acc_decision_batch_hv3: 0.9132
+ acc_decision_batch_hv4: 0.9132
+ acc_decision_batch_hv5: 0.9201
+ acc_decision_batch_hv6: 0.9275
+ acc_decision_batch_hv7: 0.9306
+ acc_decision_batch_hv8: 0.9401
+ acc_decision_batch_hv9: 0.9682
+ acc_decision_batch_hv10: 0.9717
+ acc_decision_batch_hv11: 0.9758
+ acc_decision_batch_hv12: 0.9896
+epoch: 50 , global_step: 35904 
+net1: 0.8737 net1_1: 0.8796 net1_2: 0.8792 net1_3: 0.8819
+ net2: 0.8936 net2_1: 0.8866 net2_2: 0.8839 net2_3: 0.8843
+ net3: 0.8874 net3_1: 0.8897 net3_2: 0.8980 net3_3: 0.8897
+ acc_decision_batch_hv2: 0.9116
+ acc_decision_batch_hv3: 0.9116
+ acc_decision_batch_hv4: 0.9116
+ acc_decision_batch_hv5: 0.9150
+ acc_decision_batch_hv6: 0.9186
+ acc_decision_batch_hv7: 0.9243
+ acc_decision_batch_hv8: 0.9309
+ acc_decision_batch_hv9: 0.9598
+ acc_decision_batch_hv10: 0.9751
+ acc_decision_batch_hv11: 0.9798
+ acc_decision_batch_hv12: 0.9787
+The code run 6h 28m 33s
+epoch: 55 , global_step: 39424 
+net1: 0.8534 net1_1: 0.8612 net1_2: 0.8479 net1_3: 0.8561
+ net2: 0.8682 net2_1: 0.8569 net2_2: 0.8682 net2_3: 0.8729
+ net3: 0.8709 net3_1: 0.8792 net3_2: 0.8792 net3_3: 0.8889
+ acc_decision_batch_hv2: 0.8948
+ acc_decision_batch_hv3: 0.8948
+ acc_decision_batch_hv4: 0.8948
+ acc_decision_batch_hv5: 0.9018
+ acc_decision_batch_hv6: 0.9088
+ acc_decision_batch_hv7: 0.9166
+ acc_decision_batch_hv8: 0.9318
+ acc_decision_batch_hv9: 0.9584
+ acc_decision_batch_hv10: 0.9686
+ acc_decision_batch_hv11: 0.9726
+ acc_decision_batch_hv12: 0.9778
+epoch: 60 , global_step: 42944 
+net1: 0.8784 net1_1: 0.8757 net1_2: 0.8796 net1_3: 0.8804
+ net2: 0.8952 net2_1: 0.9019 net2_2: 0.8897 net2_3: 0.8897
+ net3: 0.8932 net3_1: 0.8956 net3_2: 0.8850 net3_3: 0.8893
+ acc_decision_batch_hv2: 0.9171
+ acc_decision_batch_hv3: 0.9171
+ acc_decision_batch_hv4: 0.9171
+ acc_decision_batch_hv5: 0.9203
+ acc_decision_batch_hv6: 0.9240
+ acc_decision_batch_hv7: 0.9374
+ acc_decision_batch_hv8: 0.9469
+ acc_decision_batch_hv9: 0.9614
+ acc_decision_batch_hv10: 0.9706
+ acc_decision_batch_hv11: 0.9719
+ acc_decision_batch_hv12: 0.9772
+epoch: 65 , global_step: 46464 
+net1: 0.8889 net1_1: 0.8858 net1_2: 0.8917 net1_3: 0.8917
+ net2: 0.8917 net2_1: 0.8913 net2_2: 0.9042 net2_3: 0.8956
+ net3: 0.8941 net3_1: 0.8980 net3_2: 0.8952 net3_3: 0.8976
+ acc_decision_batch_hv2: 0.9190
+ acc_decision_batch_hv3: 0.9190
+ acc_decision_batch_hv4: 0.9190
+ acc_decision_batch_hv5: 0.9282
+ acc_decision_batch_hv6: 0.9301
+ acc_decision_batch_hv7: 0.9410
+ acc_decision_batch_hv8: 0.9505
+ acc_decision_batch_hv9: 0.9765
+ acc_decision_batch_hv10: 0.9781
+ acc_decision_batch_hv11: 0.9801
+ acc_decision_batch_hv12: 0.9847
+epoch: 70 , global_step: 49984 
+net1: 0.8976 net1_1: 0.8878 net1_2: 0.8936 net1_3: 0.8909
+ net2: 0.9038 net2_1: 0.8980 net2_2: 0.8897 net2_3: 0.8999
+ net3: 0.8956 net3_1: 0.8976 net3_2: 0.9011 net3_3: 0.8956
+ acc_decision_batch_hv2: 0.9222
+ acc_decision_batch_hv3: 0.9222
+ acc_decision_batch_hv4: 0.9222
+ acc_decision_batch_hv5: 0.9239
+ acc_decision_batch_hv6: 0.9259
+ acc_decision_batch_hv7: 0.9328
+ acc_decision_batch_hv8: 0.9457
+ acc_decision_batch_hv9: 0.9663
+ acc_decision_batch_hv10: 0.9738
+ acc_decision_batch_hv11: 0.9803
+ acc_decision_batch_hv12: 0.9868
+epoch: 75 , global_step: 53504 
+net1: 0.8905 net1_1: 0.8928 net1_2: 0.8932 net1_3: 0.8913
+ net2: 0.9093 net2_1: 0.9015 net2_2: 0.8932 net2_3: 0.8976
+ net3: 0.9073 net3_1: 0.9065 net3_2: 0.9022 net3_3: 0.9030
+ acc_decision_batch_hv2: 0.9186
+ acc_decision_batch_hv3: 0.9186
+ acc_decision_batch_hv4: 0.9186
+ acc_decision_batch_hv5: 0.9240
+ acc_decision_batch_hv6: 0.9353
+ acc_decision_batch_hv7: 0.9390
+ acc_decision_batch_hv8: 0.9505
+ acc_decision_batch_hv9: 0.9648
+ acc_decision_batch_hv10: 0.9775
+ acc_decision_batch_hv11: 0.9876
+ acc_decision_batch_hv12: 0.9917
+epoch: 80 , global_step: 57024 
+net1: 0.8819 net1_1: 0.8815 net1_2: 0.8815 net1_3: 0.8882
+ net2: 0.8882 net2_1: 0.8882 net2_2: 0.8906 net2_3: 0.8843
+ net3: 0.9058 net3_1: 0.8936 net3_2: 0.8995 net3_3: 0.8956
+ acc_decision_batch_hv2: 0.9257
+ acc_decision_batch_hv3: 0.9257
+ acc_decision_batch_hv4: 0.9257
+ acc_decision_batch_hv5: 0.9328
+ acc_decision_batch_hv6: 0.9346
+ acc_decision_batch_hv7: 0.9400
+ acc_decision_batch_hv8: 0.9503
+ acc_decision_batch_hv9: 0.9748
+ acc_decision_batch_hv10: 0.9788
+ acc_decision_batch_hv11: 0.9783
+ acc_decision_batch_hv12: 0.9857
+epoch: 85 , global_step: 60544 
+net1: 0.9077 net1_1: 0.8956 net1_2: 0.8976 net1_3: 0.8995
+ net2: 0.9124 net2_1: 0.9105 net2_2: 0.9081 net2_3: 0.9042
+ net3: 0.9116 net3_1: 0.9116 net3_2: 0.9077 net3_3: 0.9136
+ acc_decision_batch_hv2: 0.9233
+ acc_decision_batch_hv3: 0.9233
+ acc_decision_batch_hv4: 0.9233
+ acc_decision_batch_hv5: 0.9249
+ acc_decision_batch_hv6: 0.9317
+ acc_decision_batch_hv7: 0.9354
+ acc_decision_batch_hv8: 0.9476
+ acc_decision_batch_hv9: 0.9730
+ acc_decision_batch_hv10: 0.9816
+ acc_decision_batch_hv11: 0.9883
+ acc_decision_batch_hv12: 0.9953
+epoch: 90 , global_step: 64064 
+net1: 0.9069 net1_1: 0.9097 net1_2: 0.9077 net1_3: 0.9077
+ net2: 0.9159 net2_1: 0.9155 net2_2: 0.9116 net2_3: 0.9140
+ net3: 0.9151 net3_1: 0.9112 net3_2: 0.9171 net3_3: 0.9151
+ acc_decision_batch_hv2: 0.9229
+ acc_decision_batch_hv3: 0.9229
+ acc_decision_batch_hv4: 0.9229
+ acc_decision_batch_hv5: 0.9263
+ acc_decision_batch_hv6: 0.9285
+ acc_decision_batch_hv7: 0.9320
+ acc_decision_batch_hv8: 0.9443
+ acc_decision_batch_hv9: 0.9675
+ acc_decision_batch_hv10: 0.9740
+ acc_decision_batch_hv11: 0.9806
+ acc_decision_batch_hv12: 0.9866
+epoch: 95 , global_step: 67584 
+net1: 0.9077 net1_1: 0.9218 net1_2: 0.8999 net1_3: 0.9155
+ net2: 0.9140 net2_1: 0.9101 net2_2: 0.9081 net2_3: 0.9120
+ net3: 0.9120 net3_1: 0.9140 net3_2: 0.9168 net3_3: 0.9163
+ acc_decision_batch_hv2: 0.9238
+ acc_decision_batch_hv3: 0.9238
+ acc_decision_batch_hv4: 0.9238
+ acc_decision_batch_hv5: 0.9253
+ acc_decision_batch_hv6: 0.9252
+ acc_decision_batch_hv7: 0.9308
+ acc_decision_batch_hv8: 0.9428
+ acc_decision_batch_hv9: 0.9802
+ acc_decision_batch_hv10: 0.9843
+ acc_decision_batch_hv11: 0.9912
+ acc_decision_batch_hv12: 0.9952
+epoch: 100 , global_step: 71104 
+net1: 0.9194 net1_1: 0.9179 net1_2: 0.9198 net1_3: 0.9175
+ net2: 0.9198 net2_1: 0.9101 net2_2: 0.9116 net2_3: 0.9077
+ net3: 0.9238 net3_1: 0.9175 net3_2: 0.9238 net3_3: 0.9238
+ acc_decision_batch_hv2: 0.9312
+ acc_decision_batch_hv3: 0.9312
+ acc_decision_batch_hv4: 0.9312
+ acc_decision_batch_hv5: 0.9348
+ acc_decision_batch_hv6: 0.9365
+ acc_decision_batch_hv7: 0.9443
+ acc_decision_batch_hv8: 0.9519
+ acc_decision_batch_hv9: 0.9737
+ acc_decision_batch_hv10: 0.9778
+ acc_decision_batch_hv11: 0.9798
+ acc_decision_batch_hv12: 0.9822
+epoch: 105 , global_step: 74624 
+net1: 0.9093 net1_1: 0.9058 net1_2: 0.9116 net1_3: 0.9116
+ net2: 0.9179 net2_1: 0.9105 net2_2: 0.9159 net2_3: 0.9140
+ net3: 0.9179 net3_1: 0.9116 net3_2: 0.9140 net3_3: 0.9120
+ acc_decision_batch_hv2: 0.9233
+ acc_decision_batch_hv3: 0.9233
+ acc_decision_batch_hv4: 0.9233
+ acc_decision_batch_hv5: 0.9291
+ acc_decision_batch_hv6: 0.9309
+ acc_decision_batch_hv7: 0.9345
+ acc_decision_batch_hv8: 0.9437
+ acc_decision_batch_hv9: 0.9738
+ acc_decision_batch_hv10: 0.9757
+ acc_decision_batch_hv11: 0.9775
+ acc_decision_batch_hv12: 0.9882
+epoch: 110 , global_step: 78144 
+net1: 0.9136 net1_1: 0.9163 net1_2: 0.9116 net1_3: 0.9179
+ net2: 0.9261 net2_1: 0.9144 net2_2: 0.9163 net2_3: 0.9191
+ net3: 0.9281 net3_1: 0.9214 net3_2: 0.9257 net3_3: 0.9238
+ acc_decision_batch_hv2: 0.9460
+ acc_decision_batch_hv3: 0.9460
+ acc_decision_batch_hv4: 0.9460
+ acc_decision_batch_hv5: 0.9460
+ acc_decision_batch_hv6: 0.9479
+ acc_decision_batch_hv7: 0.9472
+ acc_decision_batch_hv8: 0.9569
+ acc_decision_batch_hv9: 0.9721
+ acc_decision_batch_hv10: 0.9824
+ acc_decision_batch_hv11: 0.9844
+ acc_decision_batch_hv12: 0.9975
+epoch: 115 , global_step: 81664 
+net1: 0.9101 net1_1: 0.9058 net1_2: 0.9046 net1_3: 0.9042
+ net2: 0.9218 net2_1: 0.9124 net2_2: 0.9144 net2_3: 0.9133
+ net3: 0.9194 net3_1: 0.9155 net3_2: 0.9198 net3_3: 0.9198
+ acc_decision_batch_hv2: 0.9359
+ acc_decision_batch_hv3: 0.9359
+ acc_decision_batch_hv4: 0.9359
+ acc_decision_batch_hv5: 0.9377
+ acc_decision_batch_hv6: 0.9393
+ acc_decision_batch_hv7: 0.9430
+ acc_decision_batch_hv8: 0.9462
+ acc_decision_batch_hv9: 0.9760
+ acc_decision_batch_hv10: 0.9779
+ acc_decision_batch_hv11: 0.9841
+ acc_decision_batch_hv12: 0.9907
+epoch: 120 , global_step: 85184 
+net1: 0.9120 net1_1: 0.9116 net1_2: 0.9097 net1_3: 0.9183
+ net2: 0.9265 net2_1: 0.9124 net2_2: 0.9124 net2_3: 0.9183
+ net3: 0.9277 net3_1: 0.9238 net3_2: 0.9281 net3_3: 0.9198
+ acc_decision_batch_hv2: 0.9402
+ acc_decision_batch_hv3: 0.9402
+ acc_decision_batch_hv4: 0.9402
+ acc_decision_batch_hv5: 0.9401
+ acc_decision_batch_hv6: 0.9418
+ acc_decision_batch_hv7: 0.9493
+ acc_decision_batch_hv8: 0.9544
+ acc_decision_batch_hv9: 0.9679
+ acc_decision_batch_hv10: 0.9755
+ acc_decision_batch_hv11: 0.9819
+ acc_decision_batch_hv12: 0.9952
+epoch: 125 , global_step: 88704 
+net1: 0.9198 net1_1: 0.9179 net1_2: 0.9159 net1_3: 0.9155
+ net2: 0.9179 net2_1: 0.9124 net2_2: 0.9124 net2_3: 0.9183
+ net3: 0.9198 net3_1: 0.9198 net3_2: 0.9198 net3_3: 0.9179
+ acc_decision_batch_hv2: 0.9355
+ acc_decision_batch_hv3: 0.9355
+ acc_decision_batch_hv4: 0.9355
+ acc_decision_batch_hv5: 0.9372
+ acc_decision_batch_hv6: 0.9411
+ acc_decision_batch_hv7: 0.9480
+ acc_decision_batch_hv8: 0.9589
+ acc_decision_batch_hv9: 0.9761
+ acc_decision_batch_hv10: 0.9823
+ acc_decision_batch_hv11: 0.9864
+ acc_decision_batch_hv12: 0.9929
+epoch: 130 , global_step: 92224 
+net1: 0.9155 net1_1: 0.9140 net1_2: 0.9187 net1_3: 0.9101
+ net2: 0.9203 net2_1: 0.9159 net2_2: 0.9222 net2_3: 0.9140
+ net3: 0.9179 net3_1: 0.9214 net3_2: 0.9198 net3_3: 0.9179
+ acc_decision_batch_hv2: 0.9343
+ acc_decision_batch_hv3: 0.9343
+ acc_decision_batch_hv4: 0.9343
+ acc_decision_batch_hv5: 0.9376
+ acc_decision_batch_hv6: 0.9393
+ acc_decision_batch_hv7: 0.9447
+ acc_decision_batch_hv8: 0.9561
+ acc_decision_batch_hv9: 0.9696
+ acc_decision_batch_hv10: 0.9758
+ acc_decision_batch_hv11: 0.9799
+ acc_decision_batch_hv12: 0.9884
+epoch: 135 , global_step: 95744 
+net1: 0.9218 net1_1: 0.9093 net1_2: 0.9038 net1_3: 0.9136
+ net2: 0.9261 net2_1: 0.9124 net2_2: 0.9183 net2_3: 0.9105
+ net3: 0.9155 net3_1: 0.9155 net3_2: 0.9112 net3_3: 0.9179
+ acc_decision_batch_hv2: 0.9214
+ acc_decision_batch_hv3: 0.9214
+ acc_decision_batch_hv4: 0.9214
+ acc_decision_batch_hv5: 0.9272
+ acc_decision_batch_hv6: 0.9294
+ acc_decision_batch_hv7: 0.9385
+ acc_decision_batch_hv8: 0.9500
+ acc_decision_batch_hv9: 0.9764
+ acc_decision_batch_hv10: 0.9804
+ acc_decision_batch_hv11: 0.9822
+ acc_decision_batch_hv12: 0.9908
+epoch: 140 , global_step: 99264 
+net1: 0.9144 net1_1: 0.9038 net1_2: 0.8980 net1_3: 0.9042
+ net2: 0.9203 net2_1: 0.9168 net2_2: 0.9304 net2_3: 0.9144
+ net3: 0.9159 net3_1: 0.9203 net3_2: 0.9183 net3_3: 0.9144
+ acc_decision_batch_hv2: 0.9194
+ acc_decision_batch_hv3: 0.9194
+ acc_decision_batch_hv4: 0.9194
+ acc_decision_batch_hv5: 0.9208
+ acc_decision_batch_hv6: 0.9270
+ acc_decision_batch_hv7: 0.9387
+ acc_decision_batch_hv8: 0.9488
+ acc_decision_batch_hv9: 0.9787
+ acc_decision_batch_hv10: 0.9802
+ acc_decision_batch_hv11: 0.9842
+ acc_decision_batch_hv12: 0.9883
+epoch: 145 , global_step: 102784 
+net1: 0.9097 net1_1: 0.9077 net1_2: 0.9112 net1_3: 0.9159
+ net2: 0.9320 net2_1: 0.9172 net2_2: 0.9304 net2_3: 0.9265
+ net3: 0.9155 net3_1: 0.9155 net3_2: 0.9218 net3_3: 0.9159
+ acc_decision_batch_hv2: 0.9312
+ acc_decision_batch_hv3: 0.9312
+ acc_decision_batch_hv4: 0.9312
+ acc_decision_batch_hv5: 0.9311
+ acc_decision_batch_hv6: 0.9311
+ acc_decision_batch_hv7: 0.9406
+ acc_decision_batch_hv8: 0.9479
+ acc_decision_batch_hv9: 0.9804
+ acc_decision_batch_hv10: 0.9824
+ acc_decision_batch_hv11: 0.9867
+ acc_decision_batch_hv12: 0.9977
+epoch: 150 , global_step: 106304 
+net1: 0.9101 net1_1: 0.9023 net1_2: 0.9105 net1_3: 0.9042
+ net2: 0.9242 net2_1: 0.9198 net2_2: 0.9261 net2_3: 0.9261
+ net3: 0.9194 net3_1: 0.9214 net3_2: 0.9194 net3_3: 0.9194
+ acc_decision_batch_hv2: 0.9277
+ acc_decision_batch_hv3: 0.9277
+ acc_decision_batch_hv4: 0.9277
+ acc_decision_batch_hv5: 0.9294
+ acc_decision_batch_hv6: 0.9316
+ acc_decision_batch_hv7: 0.9356
+ acc_decision_batch_hv8: 0.9446
+ acc_decision_batch_hv9: 0.9669
+ acc_decision_batch_hv10: 0.9713
+ acc_decision_batch_hv11: 0.9821
+ acc_decision_batch_hv12: 0.9909
+The code run 12h 22m 48s

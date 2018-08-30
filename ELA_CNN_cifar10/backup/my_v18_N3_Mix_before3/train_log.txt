@@ -1,0 +1,12 @@
+epoch: 0 , global_step: 704 
+net1: 0.3898 net2: 0.2973 net3: 0.3809epoch: 5 , global_step: 4224 
+net1: 0.7652 net2: 0.7642 net3: 0.7249epoch: 10 , global_step: 7744 
+net1: 0.8202 net2: 0.8176 net3: 0.8014epoch: 15 , global_step: 11264 
+net1: 0.8372 net2: 0.8416 net3: 0.8155epoch: 20 , global_step: 14784 
+net1: 0.8534 net2: 0.8489 net3: 0.8404epoch: 25 , global_step: 18304 
+net1: 0.8521 net2: 0.8590 net3: 0.8475epoch: 30 , global_step: 21824 
+net1: 0.8576 net2: 0.8627 net3: 0.8414epoch: 35 , global_step: 25344 
+net1: 0.8639 net2: 0.8505 net3: 0.8473epoch: 40 , global_step: 28864 
+net1: 0.8574 net2: 0.8673 net3: 0.8527epoch: 45 , global_step: 32384 
+net1: 0.8625 net2: 0.8657 net3: 0.8608epoch: 50 , global_step: 35904 
+net1: 0.8671 net2: 0.8724 net3: 0.8562The code run 2h 51m 53s

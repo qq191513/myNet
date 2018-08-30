@@ -1,0 +1,7 @@
+test precision_net1: 0.8266
+test precision_net2: 0.8297
+test precision_net3: 0.8329
+self.decision_prediction: 0.8625
+test result: 
+net1: 0.8266 net2: 0.8297 net3: 0.8329 decision_prediction: 0.8868
+xxxxxxxxxxxxxx parament numbers is : 510628 xxxxxxxxxxxxxxx

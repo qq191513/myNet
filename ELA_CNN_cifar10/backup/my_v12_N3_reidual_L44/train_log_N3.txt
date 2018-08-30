@@ -1,0 +1,68 @@
+epoch: 0 , global_step: 704 
+net1: 0.4300 net2: 0.4126 net3: 0.4189 decision_prediction: 0.4450
+epoch: 5 , global_step: 4224 
+net1: 0.7814 net2: 0.7991 net3: 0.7900 decision_prediction: 0.8252
+epoch: 10 , global_step: 7744 
+net1: 0.8277 net2: 0.8261 net3: 0.8269 decision_prediction: 0.8618
+epoch: 15 , global_step: 11264 
+net1: 0.8438 net2: 0.8469 net3: 0.8503 decision_prediction: 0.8849
+epoch: 20 , global_step: 14784 
+net1: 0.8592 net2: 0.8586 net3: 0.8582 decision_prediction: 0.8990
+epoch: 25 , global_step: 18304 
+net1: 0.8497 net2: 0.8574 net3: 0.8659 decision_prediction: 0.8974
+epoch: 30 , global_step: 21824 
+net1: 0.8665 net2: 0.8706 net3: 0.8657 decision_prediction: 0.9081
+epoch: 35 , global_step: 25344 
+net1: 0.8663 net2: 0.8677 net3: 0.8665 decision_prediction: 0.9098
+epoch: 40 , global_step: 28864 
+net1: 0.8712 net2: 0.8629 net3: 0.8679 decision_prediction: 0.9084
+epoch: 45 , global_step: 32384 
+net1: 0.8697 net2: 0.8756 net3: 0.8720 decision_prediction: 0.9183
+epoch: 50 , global_step: 35904 
+net1: 0.8714 net2: 0.8740 net3: 0.8730 decision_prediction: 0.9150
+epoch: 55 , global_step: 39424 
+net1: 0.8799 net2: 0.8754 net3: 0.8764 decision_prediction: 0.9170
+epoch: 60 , global_step: 42944 
+net1: 0.8730 net2: 0.8746 net3: 0.8728 decision_prediction: 0.9132
+epoch: 65 , global_step: 46464 
+net1: 0.8728 net2: 0.8689 net3: 0.8706 decision_prediction: 0.9122
+epoch: 70 , global_step: 49984 
+net1: 0.8833 net2: 0.8665 net3: 0.8803 decision_prediction: 0.9183
+epoch: 75 , global_step: 53504 
+net1: 0.8932 net2: 0.8954 net3: 0.8962 decision_prediction: 0.9375
+epoch: 80 , global_step: 57024 
+net1: 0.8942 net2: 0.8958 net3: 0.8910 decision_prediction: 0.9369
+The code run 5h 46m 59s
+epoch: 85 , global_step: 57728 
+net1: 0.8910 net2: 0.8981 net3: 0.8904 decision_prediction: 0.9350
+epoch: 90 , global_step: 58432 
+net1: 0.8912 net2: 0.8902 net3: 0.8837 decision_prediction: 0.9322
+epoch: 95 , global_step: 61952 
+net1: 0.8960 net2: 0.8993 net3: 0.8932 decision_prediction: 0.9367
+epoch: 100 , global_step: 65472 
+net1: 0.8922 net2: 0.8973 net3: 0.8841 decision_prediction: 0.9324
+The code run 0h 25m 59s
+
+The code run 0h 0m 0s
+epoch: 105 , global_step: 68992 
+net1: 0.8918 net2: 0.8968 net3: 0.8904 decision_prediction: 0.9353
+epoch: 110 , global_step: 72512 
+net1: 0.8991 net2: 0.8958 net3: 0.8847 decision_prediction: 0.9365
+The code run 0h 40m 59s
+epoch: 115 , global_step: 76032 
+net1: 0.8975 net2: 0.8914 net3: 0.8906 decision_prediction: 0.9383
+epoch: 120 , global_step: 79552 
+net1: 0.8914 net2: 0.8928 net3: 0.8873 decision_prediction: 0.9334
+epoch: 125 , global_step: 83072 
+net1: 0.8973 net2: 0.8973 net3: 0.8910 decision_prediction: 0.9393
+epoch: 130 , global_step: 86592 
+net1: 0.8972 net2: 0.8910 net3: 0.8865 decision_prediction: 0.9389
+epoch: 135 , global_step: 90112 
+net1: 0.8902 net2: 0.8914 net3: 0.8863 decision_prediction: 0.9294
+epoch: 140 , global_step: 93632 
+net1: 0.8926 net2: 0.8997 net3: 0.8910 decision_prediction: 0.9338
+epoch: 145 , global_step: 97152 
+net1: 0.8883 net2: 0.8991 net3: 0.8912 decision_prediction: 0.9348
+epoch: 150 , global_step: 100672 
+net1: 0.9068 net2: 0.9068 net3: 0.9005 decision_prediction: 0.9435
+The code run 2h 46m 35s

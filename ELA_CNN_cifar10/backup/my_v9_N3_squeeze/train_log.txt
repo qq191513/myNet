@@ -1,0 +1,5 @@
+epoch: 0 , global_step: 352 
+net1: 0.3344 net2: 0.3016 net3: 0.1021 decision_prediction: 0.2299
+epoch: 1 , global_step: 704 
+net1: 0.3811 net2: 0.4258 net3: 0.1041 decision_prediction: 0.3313
+The code run 0m 43s

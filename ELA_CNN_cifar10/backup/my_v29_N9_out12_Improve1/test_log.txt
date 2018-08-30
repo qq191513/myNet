@@ -1,0 +1,19 @@
+net1: 0.8626 net1_1: 0.8641 net1_2: 0.8630 net1_3: 0.8622
+ net2: 0.8637 net2_1: 0.8653 net2_2: 0.8679 net2_3: 0.8652
+ net3: 0.8625 net3_1: 0.8627 net3_2: 0.8603 net3_3: 0.8639
+ acc_decision_batch_hv2: 0.8898
+ acc_decision_batch_hv3: 0.8898
+ acc_decision_batch_hv4: 0.8898
+ acc_decision_batch_hv5: 0.8962
+ acc_decision_batch_hv6: 0.9032
+ acc_decision_batch_hv7: 0.9115
+ acc_decision_batch_hv8: 0.9259
+ acc_decision_batch_hv9: 0.9521
+ acc_decision_batch_hv10: 0.9588
+ acc_decision_batch_hv11: 0.9654
+ acc_decision_batch_hv12: 0.9712
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 99 aborted_num_hv6 227 aborted_num_hv7 412
+aborted_num_hv8 730 aborted_num_hv9 1562 aborted_num_hv10 1847
+aborted_num_hv11 2152 aborted_num_hv12 2544
+xxxxxxxxxxxxxx parament numbers is : 92055516 xxxxxxxxxxxxxxx

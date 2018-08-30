@@ -1,0 +1,6 @@
+test precision_net1: 0.5669
+test precision_net2: 0.0996
+test precision_net3: 0.0996
+test precision_net4: 0.5557
+test precision_net5: 0.6295
+self.decision_prediction: 0.4461

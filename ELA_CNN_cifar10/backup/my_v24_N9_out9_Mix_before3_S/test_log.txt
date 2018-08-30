@@ -1,0 +1,317 @@
+net1: 0.8752 net1_1: 0.1046 net1_2: 0.1004 net1_3: 0.0943
+ net2: 0.8540 net2_1: 0.0943 net2_2: 0.1004 net2_3: 0.5201
+ net3: 0.8219
+ acc_decision_batch_hv2: 0.8162
+ acc_decision_batch_hv3: 0.8536
+ acc_decision_batch_hv4: 0.9148
+ acc_decision_batch_hv5: 0.9181
+ acc_decision_batch_hv6: 0.9219
+ acc_decision_batch_hv7: 1.0000
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+net1: 0.8555 net1_1: 0.1367 net1_2: 0.1367 net1_3: 0.1094
+ net2: 0.8203 net2_1: 0.1250 net2_2: 0.1367 net2_3: 0.4531
+ net3: 0.8086
+ acc_decision_batch_hv2: 0.8047
+ acc_decision_batch_hv3: 0.8543
+ acc_decision_batch_hv4: 0.8871
+ acc_decision_batch_hv5: 0.9739
+ acc_decision_batch_hv6: 1.0000
+ acc_decision_batch_hv7: nan
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+net1: 0.8555 net1_1: 0.1172 net1_2: 0.1367 net1_3: 0.0781
+ net2: 0.8164 net2_1: 0.1016 net2_2: 0.1367 net2_3: 0.4531
+ net3: 0.7969
+ acc_decision_batch_hv2: 0.8125
+ acc_decision_batch_hv3: 0.8455
+ acc_decision_batch_hv4: 0.8843
+ acc_decision_batch_hv5: 0.8671
+ acc_decision_batch_hv6: 1.0000
+ acc_decision_batch_hv7: nan
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 13 aborted_num_hv4 60
+aborted_num_hv5 138 aborted_num_hv6 184 aborted_num_hv7 0
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8477 net1_1: 0.8164 net1_2: 0.8438 net1_3: 0.8125
+ net2: 0.8242 net2_1: 0.8633 net2_2: 0.8008 net2_3: 0.8359
+ net3: 0.8359
+ acc_decision_batch_hv2: 0.8516
+ acc_decision_batch_hv3: 0.8516
+ acc_decision_batch_hv4: 0.8516
+ acc_decision_batch_hv5: 0.8615
+ acc_decision_batch_hv6: 0.8814
+ acc_decision_batch_hv7: 0.8923
+ acc_decision_batch_hv8: 0.8956
+ acc_decision_batch_hv9: 0.9685
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 5 aborted_num_hv6 18 aborted_num_hv7 26
+aborted_num_hv8 34 aborted_num_hv9 54
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8546 net1_1: 0.1411 net1_2: 0.1298 net1_3: 0.0903
+ net2: 0.8312 net2_1: 0.1176 net2_2: 0.1298 net2_3: 0.4583
+ net3: 0.7882
+ acc_decision_batch_hv2: 0.8077
+ acc_decision_batch_hv3: 0.8487
+ acc_decision_batch_hv4: 0.8983
+ acc_decision_batch_hv5: 0.9219
+ acc_decision_batch_hv6: 0.8333
+ acc_decision_batch_hv7: nan
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 12 aborted_num_hv4 72
+aborted_num_hv5 150 aborted_num_hv6 128 aborted_num_hv7 0
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8390 net1_1: 0.1840 net1_2: 0.1298 net1_3: 0.1059
+ net2: 0.8151 net2_1: 0.1497 net2_2: 0.1298 net2_3: 0.5017
+ net3: 0.7960
+ acc_decision_batch_hv2: 0.7760
+ acc_decision_batch_hv3: 0.7892
+ acc_decision_batch_hv4: 0.8608
+ acc_decision_batch_hv5: 0.9660
+ acc_decision_batch_hv6: 0.9688
+ acc_decision_batch_hv7: nan
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 10 aborted_num_hv4 58
+aborted_num_hv5 153 aborted_num_hv6 179 aborted_num_hv7 0
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8468 net1_1: 0.8468 net1_2: 0.1298 net1_3: 0.1176
+ net2: 0.8390 net2_1: 0.1415 net2_2: 0.1298 net2_3: 0.4974
+ net3: 0.7682
+ acc_decision_batch_hv2: 0.8663
+ acc_decision_batch_hv3: 0.8765
+ acc_decision_batch_hv4: 0.8878
+ acc_decision_batch_hv5: 0.8968
+ acc_decision_batch_hv6: 0.8906
+ acc_decision_batch_hv7: 1.0000
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 4 aborted_num_hv4 27
+aborted_num_hv5 83 aborted_num_hv6 152 aborted_num_hv7 133
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8546 net1_1: 0.8741 net1_2: 0.1298 net1_3: 0.0781
+ net2: 0.8390 net2_1: 0.1376 net2_2: 0.1298 net2_3: 0.4661
+ net3: 0.8038
+ acc_decision_batch_hv2: 0.8585
+ acc_decision_batch_hv3: 0.8757
+ acc_decision_batch_hv4: 0.9035
+ acc_decision_batch_hv5: 0.9327
+ acc_decision_batch_hv6: 0.9459
+ acc_decision_batch_hv7: 1.0000
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 6 aborted_num_hv4 28
+aborted_num_hv5 79 aborted_num_hv6 159 aborted_num_hv7 195
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8624 net1_1: 0.8585 net1_2: 0.1298 net1_3: 0.0825
+ net2: 0.8390 net2_1: 0.0938 net2_2: 0.1298 net2_3: 0.4227
+ net3: 0.8155
+ acc_decision_batch_hv2: 0.8507
+ acc_decision_batch_hv3: 0.8608
+ acc_decision_batch_hv4: 0.8868
+ acc_decision_batch_hv5: 0.9133
+ acc_decision_batch_hv6: 0.8595
+ acc_decision_batch_hv7: 0.8889
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 4 aborted_num_hv4 23
+aborted_num_hv5 77 aborted_num_hv6 164 aborted_num_hv7 186
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8589 net1_1: 0.8429 net1_2: 0.1380 net1_3: 0.0859
+ net2: 0.8351 net2_1: 0.1332 net2_2: 0.1298 net2_3: 0.4310
+ net3: 0.8155
+ acc_decision_batch_hv2: 0.8746
+ acc_decision_batch_hv3: 0.8768
+ acc_decision_batch_hv4: 0.9188
+ acc_decision_batch_hv5: 0.9330
+ acc_decision_batch_hv6: 0.9643
+ acc_decision_batch_hv7: nan
+ acc_decision_batch_hv8: nan
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 3 aborted_num_hv4 27
+aborted_num_hv5 75 aborted_num_hv6 171 aborted_num_hv7 0
+aborted_num_hv8 0 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8702 net1_1: 0.8663 net1_2: 0.8702 net1_3: 0.1176
+ net2: 0.8351 net2_1: 0.1372 net2_2: 0.1298 net2_3: 0.4740
+ net3: 0.8316
+ acc_decision_batch_hv2: 0.8741
+ acc_decision_batch_hv3: 0.8741
+ acc_decision_batch_hv4: 0.8912
+ acc_decision_batch_hv5: 0.9083
+ acc_decision_batch_hv6: 0.9740
+ acc_decision_batch_hv7: 1.0000
+ acc_decision_batch_hv8: 1.0000
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 9
+aborted_num_hv5 33 aborted_num_hv6 82 aborted_num_hv7 168
+aborted_num_hv8 63 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8151 net1_1: 0.7951 net1_2: 0.7873 net1_3: 0.0938
+ net2: 0.8034 net2_1: 0.1372 net2_2: 0.7917 net2_3: 0.4345
+ net3: 0.7921
+ acc_decision_batch_hv2: 0.8390
+ acc_decision_batch_hv3: 0.8390
+ acc_decision_batch_hv4: 0.8457
+ acc_decision_batch_hv5: 0.8748
+ acc_decision_batch_hv6: 0.9200
+ acc_decision_batch_hv7: 0.9022
+ acc_decision_batch_hv8: 0.7273
+ acc_decision_batch_hv9: nan
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 5
+aborted_num_hv5 24 aborted_num_hv6 45 aborted_num_hv7 94
+aborted_num_hv8 173 aborted_num_hv9 0
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8585 net1_1: 0.8585 net1_2: 0.8624 net1_3: 0.8468
+ net2: 0.8273 net2_1: 0.1059 net2_2: 0.8668 net2_3: 0.4661
+ net3: 0.7921
+ acc_decision_batch_hv2: 0.8702
+ acc_decision_batch_hv3: 0.8702
+ acc_decision_batch_hv4: 0.8697
+ acc_decision_batch_hv5: 0.8785
+ acc_decision_batch_hv6: 0.9002
+ acc_decision_batch_hv7: 0.9007
+ acc_decision_batch_hv8: 0.9680
+ acc_decision_batch_hv9: 1.0000
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 10 aborted_num_hv6 22 aborted_num_hv7 36
+aborted_num_hv8 103 aborted_num_hv9 185
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8585 net1_1: 0.8663 net1_2: 0.8663 net1_3: 0.8507
+ net2: 0.8073 net2_1: 0.7839 net2_2: 0.8034 net2_3: 0.4666
+ net3: 0.8121
+ acc_decision_batch_hv2: 0.8663
+ acc_decision_batch_hv3: 0.8663
+ acc_decision_batch_hv4: 0.8663
+ acc_decision_batch_hv5: 0.8805
+ acc_decision_batch_hv6: 0.8922
+ acc_decision_batch_hv7: 0.9092
+ acc_decision_batch_hv8: 0.9164
+ acc_decision_batch_hv9: 1.0000
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 6 aborted_num_hv6 25 aborted_num_hv7 32
+aborted_num_hv8 50 aborted_num_hv9 121
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8628 net1_1: 0.8707 net1_2: 0.8707 net1_3: 0.8589
+ net2: 0.8429 net2_1: 0.8112 net2_2: 0.8507 net2_3: 0.4744
+ net3: 0.7921
+ acc_decision_batch_hv2: 0.8390
+ acc_decision_batch_hv3: 0.8390
+ acc_decision_batch_hv4: 0.8423
+ acc_decision_batch_hv5: 0.8826
+ acc_decision_batch_hv6: 0.9212
+ acc_decision_batch_hv7: 0.9374
+ acc_decision_batch_hv8: 0.9343
+ acc_decision_batch_hv9: 0.9708
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 12 aborted_num_hv6 21 aborted_num_hv7 30
+aborted_num_hv8 49 aborted_num_hv9 116
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8507 net1_1: 0.8507 net1_2: 0.8507 net1_3: 0.8507
+ net2: 0.8112 net2_1: 0.8073 net2_2: 0.8229 net2_3: 0.8429
+ net3: 0.8160
+ acc_decision_batch_hv2: 0.8429
+ acc_decision_batch_hv3: 0.8429
+ acc_decision_batch_hv4: 0.8461
+ acc_decision_batch_hv5: 0.8595
+ acc_decision_batch_hv6: 0.8925
+ acc_decision_batch_hv7: 0.8924
+ acc_decision_batch_hv8: 0.8950
+ acc_decision_batch_hv9: 0.9431
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 6 aborted_num_hv6 18 aborted_num_hv7 24
+aborted_num_hv8 32 aborted_num_hv9 53
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8824 net1_1: 0.8902 net1_2: 0.8585 net1_3: 0.8390
+ net2: 0.8073 net2_1: 0.7795 net2_2: 0.8112 net2_3: 0.8351
+ net3: 0.8394
+ acc_decision_batch_hv2: 0.8585
+ acc_decision_batch_hv3: 0.8585
+ acc_decision_batch_hv4: 0.8619
+ acc_decision_batch_hv5: 0.8716
+ acc_decision_batch_hv6: 0.9092
+ acc_decision_batch_hv7: 0.9410
+ acc_decision_batch_hv8: 0.9446
+ acc_decision_batch_hv9: 0.9366
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 6 aborted_num_hv6 23 aborted_num_hv7 34
+aborted_num_hv8 41 aborted_num_hv9 54
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8624 net1_1: 0.8585 net1_2: 0.8585 net1_3: 0.8507
+ net2: 0.8585 net2_1: 0.8546 net2_2: 0.8663 net2_3: 0.4345
+ net3: 0.8472
+ acc_decision_batch_hv2: 0.8741
+ acc_decision_batch_hv3: 0.8741
+ acc_decision_batch_hv4: 0.8741
+ acc_decision_batch_hv5: 0.8770
+ acc_decision_batch_hv6: 0.8977
+ acc_decision_batch_hv7: 0.9042
+ acc_decision_batch_hv8: 0.9250
+ acc_decision_batch_hv9: 0.9080
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 3 aborted_num_hv6 15 aborted_num_hv7 23
+aborted_num_hv8 39 aborted_num_hv9 110
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8819 net1_1: 0.8741 net1_2: 0.8780 net1_3: 0.8741
+ net2: 0.8546 net2_1: 0.8268 net2_2: 0.8585 net2_3: 0.8624
+ net3: 0.8351
+ acc_decision_batch_hv2: 0.8780
+ acc_decision_batch_hv3: 0.8780
+ acc_decision_batch_hv4: 0.8780
+ acc_decision_batch_hv5: 0.8888
+ acc_decision_batch_hv6: 0.9100
+ acc_decision_batch_hv7: 0.9136
+ acc_decision_batch_hv8: 0.9770
+ acc_decision_batch_hv9: 0.9791
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 3 aborted_num_hv6 15 aborted_num_hv7 19
+aborted_num_hv8 28 aborted_num_hv9 45
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8546 net1_1: 0.8546 net1_2: 0.8585 net1_3: 0.8624
+ net2: 0.8194 net2_1: 0.7995 net2_2: 0.8034 net2_3: 0.8351
+ net3: 0.8155
+ acc_decision_batch_hv2: 0.8507
+ acc_decision_batch_hv3: 0.8507
+ acc_decision_batch_hv4: 0.8540
+ acc_decision_batch_hv5: 0.8681
+ acc_decision_batch_hv6: 0.8925
+ acc_decision_batch_hv7: 0.9074
+ acc_decision_batch_hv8: 0.9081
+ acc_decision_batch_hv9: 0.9214
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 5 aborted_num_hv6 18 aborted_num_hv7 29
+aborted_num_hv8 38 aborted_num_hv9 52
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8624 net1_1: 0.8585 net1_2: 0.8507 net1_3: 0.8863
+ net2: 0.8351 net2_1: 0.7756 net2_2: 0.8151 net2_3: 0.8351
+ net3: 0.7721
+ acc_decision_batch_hv2: 0.8663
+ acc_decision_batch_hv3: 0.8663
+ acc_decision_batch_hv4: 0.8658
+ acc_decision_batch_hv5: 0.8794
+ acc_decision_batch_hv6: 0.8919
+ acc_decision_batch_hv7: 0.8958
+ acc_decision_batch_hv8: 0.8956
+ acc_decision_batch_hv9: 0.9183
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 6 aborted_num_hv6 19 aborted_num_hv7 22
+aborted_num_hv8 31 aborted_num_hv9 53
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8312 net1_1: 0.8390 net1_2: 0.8151 net1_3: 0.7995
+ net2: 0.8468 net2_1: 0.8429 net2_2: 0.8785 net2_3: 0.8429
+ net3: 0.7999
+ acc_decision_batch_hv2: 0.8585
+ acc_decision_batch_hv3: 0.8585
+ acc_decision_batch_hv4: 0.8585
+ acc_decision_batch_hv5: 0.8685
+ acc_decision_batch_hv6: 0.8995
+ acc_decision_batch_hv7: 0.9230
+ acc_decision_batch_hv8: 0.9171
+ acc_decision_batch_hv9: 0.9308
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 4 aborted_num_hv6 24 aborted_num_hv7 28
+aborted_num_hv8 34 aborted_num_hv9 56
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxxnet1: 0.8390 net1_1: 0.8429 net1_2: 0.8624 net1_3: 0.8663
+ net2: 0.8550 net2_1: 0.8668 net2_2: 0.8707 net2_3: 0.8824
+ net3: 0.8199
+ acc_decision_batch_hv2: 0.8863
+ acc_decision_batch_hv3: 0.8863
+ acc_decision_batch_hv4: 0.8863
+ acc_decision_batch_hv5: 0.8966
+ acc_decision_batch_hv6: 0.9211
+ acc_decision_batch_hv7: 0.9367
+ acc_decision_batch_hv8: 0.9401
+ acc_decision_batch_hv9: 0.9525
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 3 aborted_num_hv6 20 aborted_num_hv7 29
+aborted_num_hv8 37 aborted_num_hv9 52
+xxxxxxxxxxxxxx parament numbers is : 75244152 xxxxxxxxxxxxxxx

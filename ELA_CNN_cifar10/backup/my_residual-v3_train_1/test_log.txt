@@ -1,0 +1,1 @@
+epoch: 0 , global_step: 704 , train loss: 583.417114 , valid precision: 0.525200 , valid loss: 448.843159

@@ -1,0 +1,2 @@
+epoch: 0 , global_step: 704 
+net1: 0.3924 net2: 0.3695 net3: 0.3544 net1_1: 0.4031 acc_decision_batch_hv2: 0.4011

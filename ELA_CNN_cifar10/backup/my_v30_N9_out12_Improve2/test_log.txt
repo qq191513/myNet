@@ -1,0 +1,55 @@
+net1: 0.8775 net1_1: 0.8835 net1_2: 0.8815 net1_3: 0.8824
+ net2: 0.8864 net2_1: 0.8832 net2_2: 0.8836 net2_3: 0.8849
+ net3: 0.8748 net3_1: 0.8777 net3_2: 0.8777 net3_3: 0.8773
+ acc_decision_batch_hv2: 0.9063
+ acc_decision_batch_hv3: 0.9063
+ acc_decision_batch_hv4: 0.9064
+ acc_decision_batch_hv5: 0.9140
+ acc_decision_batch_hv6: 0.9175
+ acc_decision_batch_hv7: 0.9244
+ acc_decision_batch_hv8: 0.9352
+ acc_decision_batch_hv9: 0.9618
+ acc_decision_batch_hv10: 0.9669
+ acc_decision_batch_hv11: 0.9704
+ acc_decision_batch_hv12: 0.9762
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 1
+aborted_num_hv5 123 aborted_num_hv6 206 aborted_num_hv7 378
+aborted_num_hv8 626 aborted_num_hv9 1472 aborted_num_hv10 1721
+aborted_num_hv11 1922 aborted_num_hv12 2221
+xxxxxxxxxxxxxx parament numbers is : 128954664 xxxxxxxxxxxxxxxnet1: 0.9045 net1_1: 0.9030 net1_2: 0.9025 net1_3: 0.9043
+ net2: 0.9110 net2_1: 0.9101 net2_2: 0.9095 net2_3: 0.9102
+ net3: 0.9025 net3_1: 0.9043 net3_2: 0.9046 net3_3: 0.9049
+ acc_decision_batch_hv2: 0.9218
+ acc_decision_batch_hv3: 0.9218
+ acc_decision_batch_hv4: 0.9218
+ acc_decision_batch_hv5: 0.9269
+ acc_decision_batch_hv6: 0.9306
+ acc_decision_batch_hv7: 0.9332
+ acc_decision_batch_hv8: 0.9415
+ acc_decision_batch_hv9: 0.9663
+ acc_decision_batch_hv10: 0.9713
+ acc_decision_batch_hv11: 0.9743
+ acc_decision_batch_hv12: 0.9794
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 77 aborted_num_hv6 137 aborted_num_hv7 202
+aborted_num_hv8 380 aborted_num_hv9 1084 aborted_num_hv10 1257
+aborted_num_hv11 1422 aborted_num_hv12 1658
+xxxxxxxxxxxxxx parament numbers is : 128954664 xxxxxxxxxxxxxxxnet1: 0.8992 net1_1: 0.9008 net1_2: 0.8999 net1_3: 0.9007
+ net2: 0.9076 net2_1: 0.9043 net2_2: 0.9061 net2_3: 0.9045
+ net3: 0.8971 net3_1: 0.8989 net3_2: 0.8994 net3_3: 0.8988
+ acc_decision_batch_hv2: 0.9194
+ acc_decision_batch_hv3: 0.9194
+ acc_decision_batch_hv4: 0.9194
+ acc_decision_batch_hv5: 0.9240
+ acc_decision_batch_hv6: 0.9266
+ acc_decision_batch_hv7: 0.9316
+ acc_decision_batch_hv8: 0.9406
+ acc_decision_batch_hv9: 0.9635
+ acc_decision_batch_hv10: 0.9687
+ acc_decision_batch_hv11: 0.9727
+ acc_decision_batch_hv12: 0.9774
+aborted_num_hv2 0 aborted_num_hv3 0 aborted_num_hv4 0
+aborted_num_hv5 74 aborted_num_hv6 132 aborted_num_hv7 255
+aborted_num_hv8 439 aborted_num_hv9 1134 aborted_num_hv10 1325
+aborted_num_hv11 1467 aborted_num_hv12 1691
+xxxxxxxxxxxxxx parament numbers is : 128954664 xxxxxxxxxxxxxxx

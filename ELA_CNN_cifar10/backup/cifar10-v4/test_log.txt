@@ -1,0 +1,33 @@
+epoch: 0 , global_step: 704 , train loss: 328.237992 , valid precision: 0.590400 , valid loss: 225.334551
+epoch: 1 , global_step: 1408 , train loss: 238.319158 , valid precision: 0.672400 , valid loss: 191.632754
+epoch: 2 , global_step: 2112 , train loss: 219.255135 , valid precision: 0.702200 , valid loss: 182.472031
+epoch: 3 , global_step: 2816 , train loss: 211.118679 , valid precision: 0.715000 , valid loss: 178.037968
+epoch: 4 , global_step: 3520 , train loss: 206.954081 , valid precision: 0.724000 , valid loss: 179.723854
+epoch: 5 , global_step: 4224 , train loss: 205.667091 , valid precision: 0.756800 , valid loss: 173.209975
+epoch: 6 , global_step: 4928 , train loss: 203.920781 , valid precision: 0.755800 , valid loss: 173.057764
+epoch: 7 , global_step: 5632 , train loss: 201.745147 , valid precision: 0.764600 , valid loss: 170.739705
+epoch: 8 , global_step: 6336 , train loss: 197.758152 , valid precision: 0.771200 , valid loss: 173.513111
+epoch: 9 , global_step: 7040 , train loss: 197.467170 , valid precision: 0.773600 , valid loss: 170.035352
+epoch: 10 , global_step: 7744 , train loss: 194.913568 , valid precision: 0.777800 , valid loss: 168.541883
+epoch: 11 , global_step: 8448 , train loss: 191.452220 , valid precision: 0.783400 , valid loss: 169.451239
+epoch: 12 , global_step: 9152 , train loss: 189.145344 , valid precision: 0.788800 , valid loss: 166.421664
+epoch: 13 , global_step: 9856 , train loss: 187.378548 , valid precision: 0.784200 , valid loss: 169.522882
+epoch: 14 , global_step: 10560 , train loss: 184.491625 , valid precision: 0.793800 , valid loss: 164.470323
+epoch: 15 , global_step: 11264 , train loss: 182.583173 , valid precision: 0.789000 , valid loss: 164.958995
+epoch: 16 , global_step: 11968 , train loss: 181.057214 , valid precision: 0.788800 , valid loss: 164.190187
+epoch: 17 , global_step: 12672 , train loss: 178.315522 , valid precision: 0.796800 , valid loss: 163.215356
+epoch: 18 , global_step: 13376 , train loss: 175.838201 , valid precision: 0.797000 , valid loss: 159.273306
+epoch: 19 , global_step: 14080 , train loss: 173.758969 , valid precision: 0.792200 , valid loss: 160.190052
+epoch: 20 , global_step: 14784 , train loss: 173.114258 , valid precision: 0.796000 , valid loss: 158.823765
+epoch: 21 , global_step: 15488 , train loss: 170.980849 , valid precision: 0.799800 , valid loss: 158.295964
+epoch: 22 , global_step: 16192 , train loss: 169.180224 , valid precision: 0.805600 , valid loss: 156.459553
+epoch: 23 , global_step: 16896 , train loss: 167.914067 , valid precision: 0.808600 , valid loss: 154.488248
+epoch: 24 , global_step: 17600 , train loss: 165.957537 , valid precision: 0.804200 , valid loss: 155.165040
+epoch: 25 , global_step: 18304 , train loss: 164.308210 , valid precision: 0.800200 , valid loss: 156.746571
+test precision_v1: 0.8509
+test precision_v2: 0.8551
+test precision_v3: 0.8502
+test precision_v4: 0.8543
+test precision_v5: 0.8435
+self.decision_prediction: 0.8843
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxx parament numbers is : 21508761
