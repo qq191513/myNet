@@ -209,11 +209,11 @@ class ConvNet():
         self.avg_loss = tf.add_n(tf.get_collection('losses'))
 
         # 优化器
-        lr = tf.cond(tf.less(self.global_step, 20000),
+        lr = tf.cond(tf.less(self.global_step, 30000),
                      lambda: tf.constant(0.01),
-                     lambda: tf.cond(tf.less(self.global_step, 40000),
+                     lambda: tf.cond(tf.less(self.global_step, 60000),
                                      lambda: tf.constant(0.005),
-                                     lambda: tf.cond(tf.less(self.global_step, 60000),
+                                     lambda: tf.cond(tf.less(self.global_step, 80000),
                                                      lambda: tf.constant(0.001),
                                                      lambda: tf.constant(0.0005))))
         self.optimizer = tf.train.AdamOptimizer(learning_rate=lr).minimize(
@@ -221,7 +221,7 @@ class ConvNet():
         # self.optimizer = tf.train.AdamOptimizer(learning_rate=lr)
         # self.train_op = slim.learning.create_train_op(self.avg_loss, self.optimizer)
 
-        # 观察值
+        # 精度观察
         #son1
         correct_prediction_1 = tf.equal(self.labels, tf.argmax(self.logits_1, 1))
         self.accuracy_1 = tf.reduce_mean(tf.cast(correct_prediction_1, 'float'))
@@ -270,7 +270,22 @@ class ConvNet():
         correct_prediction_3_3 = tf.equal(self.labels, tf.argmax(self.logits_3_3, 1))
         self.accuracy_3_3 = tf.reduce_mean(tf.cast(correct_prediction_3_3, 'float'))
 
-    def grand_son_1_1(self,hidden_conv_1,scope_name):
+        #概率观察
+        self.probability_op={}
+        self.probability_op['logits_1'] = tf.nn.softmax(self.logits_1)
+        self.probability_op['logits_1_1'] = tf.nn.softmax(self.logits_1_1)
+        self.probability_op['logits_1_2'] = tf.nn.softmax(self.logits_1_2)
+        self.probability_op['logits_1_3'] = tf.nn.softmax(self.logits_1_3)
+        self.probability_op['logits_2'] = tf.nn.softmax(self.logits_2)
+        self.probability_op['logits_2_1'] = tf.nn.softmax(self.logits_2_1)
+        self.probability_op['logits_2_2'] = tf.nn.softmax(self.logits_2_2)
+        self.probability_op['logits_2_3'] = tf.nn.softmax(self.logits_2_3)
+        self.probability_op['logits_3'] = tf.nn.softmax(self.logits_3)
+        self.probability_op['logits_3_1'] = tf.nn.softmax(self.logits_3_1)
+        self.probability_op['logits_3_2'] = tf.nn.softmax(self.logits_3_2)
+        self.probability_op['logits_3_3'] = tf.nn.softmax(self.logits_3_3)
+
+    def grand_son_1_1(self, hidden_conv_1, scope_name):
         with tf.variable_scope(scope_name):
             with slim.arg_scope([slim.conv2d, slim.fully_connected],
                                 activation_fn=None,
@@ -290,7 +305,7 @@ class ConvNet():
                                                       300, is_training, bc_mode, dropout_keep_prob)
 
                         with tf.variable_scope("trainsition_layer_to_classes"):
-                            logits = self.trainsition_layer_to_classes(hidden_conv_1_1, self.n_classes,is_training)
+                            logits = self.trainsition_layer_to_classes(hidden_conv_1_1, self.n_classes, is_training)
                             logits = tf.reshape(logits, [-1, self.n_classes])
         return logits
 
@@ -1065,6 +1080,50 @@ class ConvNet():
             return hidden_conv
 
     def get_all_acc_list(self,test_images,test_labels,n_test,batch_size,is_train =True):
+        def get_acc_decision_batch(batch_labels_array, final_batch_predict_list):
+            array_final_batch_predict_list = np.array(final_batch_predict_list)
+
+            # 每一批的正确率都放到列表里面
+            totol_batch_prediction = tf.equal(batch_labels_array, array_final_batch_predict_list)
+
+            self.decision_batch_prediction = tf.reduce_mean(tf.cast(totol_batch_prediction, 'float'))
+            acc_decision_batch = self.sess.run(self.decision_batch_prediction, feed_dict={self.labels: batch_labels})
+            return acc_decision_batch
+
+        def soft_max_predict(batch_images, batch_labels):
+            # 算出所有logits的概率矩阵
+
+            probability_value = {}
+            for name, op in self.probability_op.items():
+                probability_value[name] = self.sess.run(
+                    op, feed_dict={self.images: batch_images,
+                                   self.keep_prob: 1.0})
+
+            # 把每个网络输出的概率矩阵相加，每个概率矩阵为batch_size * num_class
+            sum = 0
+            for name, value in probability_value.items():
+                sum = sum + value
+
+            rows,cols= sum.shape
+            delete_number = 0
+            dele_row_list =[]
+            for row in range(0,rows):
+                max_value = np.max(sum[row])
+                if max_value < 8:
+                    dele_row_list.append(row)
+                    delete_number += 1
+            sum = np.delete(sum,dele_row_list,axis = 0)
+            batch_labels =np.delete(batch_labels,dele_row_list,axis = 0)
+
+
+
+
+            predict_batch = self.sess.run(tf.argmax(sum, axis=1))
+            soft_result_acc = get_acc_decision_batch(batch_labels, predict_batch)
+            print('soft predict result_acc : %.4f  , delete_number %d ' % (soft_result_acc,delete_number))
+            return soft_result_acc,delete_number
+
+
         batchs_number = 0
         hv_range = range(2, 13)
 
@@ -1079,11 +1138,13 @@ class ConvNet():
         accuracy_2_2_list = []
         accuracy_2_3_list = []
 
-
         accuracy_3_list = []
         accuracy_3_1_list = []
         accuracy_3_2_list = []
         accuracy_3_3_list = []
+
+
+        soft_result_acc_list = []
         # 不同决策的准确率列表
         acc_decision_batch_hv_dict={}
         for hv_number in hv_range:
@@ -1092,12 +1153,14 @@ class ConvNet():
             acc_decision_batch_hv_dict[acc_decision_batch_hv_name] = []
             acc_decision_batch_hv_dict[aborted_num_hv_name] =0 #清0
 
-        n_test =n_test - 1
+        n_test = n_test - n_test % batch_size
         start_pos = 0
+        soft_delete_number_total = 0
         if self.setting.only_test_small_part_dataset:
-            start_pos = int(n_test * 0.90)
+            start_pos = int(n_test * self.setting.test_proprotion)
         if self.setting.debug_mode:
-            start_pos = int(n_test *0.95)
+            start_pos = int(n_test * self.setting.test_proprotion)
+
         for i in range(start_pos, n_test, batch_size):
 
             print('batchs_number: %d  , i: %d' % (batchs_number,i))
@@ -1123,6 +1186,12 @@ class ConvNet():
                 feed_dict={self.images: batch_images,
                            self.labels: batch_labels,
                            self.keep_prob: 1.0})
+
+            soft_result_acc,soft_delete_number = soft_max_predict(batch_images, labels_array)
+            soft_result_acc_list.append(soft_result_acc)
+            soft_delete_number_total += soft_delete_number
+
+            # soft_max_predict(batch_images, labels_array)
 
             accuracy_1_list.append(avg_accuracy_1)
             accuracy_1_1_list.append(avg_accuracy_1_1)
@@ -1211,15 +1280,7 @@ class ConvNet():
 
             batchs_number = batchs_number + 1
 
-            def get_acc_decision_batch(batch_labels_array,final_batch_predict_list):
-                array_final_batch_predict_list = np.array(final_batch_predict_list)
 
-                # 每一批的正确率都放到列表里面
-                totol_batch_prediction = tf.equal(batch_labels_array, array_final_batch_predict_list)
-
-                self.decision_batch_prediction = tf.reduce_mean(tf.cast(totol_batch_prediction, 'float'))
-                acc_decision_batch = self.sess.run(self.decision_batch_prediction, feed_dict={self.labels: batch_labels})
-                return acc_decision_batch
 
             #统计所有批次
             for hv_number in hv_range:
@@ -1238,12 +1299,12 @@ class ConvNet():
                     acc_decision_batch_hv_dict[acc_decision_batch_hv_name] = acc_list
                     acc_decision_batch_hv_dict[aborted_num_hv_name] += reject_num
 
-            print()
-
+            # print('finsoft_result_acc: ',soft_result_acc_list)
+        acc_decision_batch_hv_dict['soft_delete_number_total'] = soft_delete_number_total
         return accuracy_1_list,accuracy_1_1_list,accuracy_1_2_list,accuracy_1_3_list, \
                accuracy_2_list,accuracy_2_1_list,accuracy_2_2_list,accuracy_2_3_list,\
                accuracy_3_list,accuracy_3_1_list,accuracy_3_2_list,accuracy_3_3_list,\
-               acc_decision_batch_hv_dict
+               acc_decision_batch_hv_dict,soft_result_acc_list
 
         
     def train(self, dataloader, backup_path, n_epoch=5,
@@ -1281,7 +1342,7 @@ class ConvNet():
         # 模型训练
         since = time.time()
 
-        start_n_epoch= 0
+        start_n_epoch= self.setting.start_n_epoch
         for epoch in range(start_n_epoch, n_epoch+1):
             print('epoch: %d' % epoch)
             # 训练集数据增强
@@ -1314,7 +1375,7 @@ class ConvNet():
                 accuracy_1_list,accuracy_1_1_list,accuracy_1_2_list,accuracy_1_3_list, \
                 accuracy_2_list,accuracy_2_1_list,accuracy_2_2_list,accuracy_2_3_list, \
                 accuracy_3_list,accuracy_3_1_list,accuracy_3_2_list,accuracy_3_3_list, \
-                acc_decision_batch_dict = \
+                acc_decision_batch_dict,soft_result_acc_list = \
                     self.get_all_acc_list(valid_images,valid_labels,dataloader.n_valid,batch_size,True)
 
                 message_epoch = 'epoch: {} , global_step: {} \n'.format(epoch,get_global_step)
@@ -1356,13 +1417,20 @@ class ConvNet():
                     np.mean(acc_decision_batch_dict['acc_decision_batch_hv11']))
                 message_hv12 = ' acc_decision_batch_hv12: %.4f\n' % (
                     np.mean(acc_decision_batch_dict['acc_decision_batch_hv12']))
+                message_soft = ' soft_result_acc_list: %.4f\n' % (
+                    np.mean(soft_result_acc_list))
+                message_soft_delete_number = ' soft_delete_number: %d\n' %\
+                                             acc_decision_batch_dict['soft_delete_number_total']
+
+
                 print_and_save_txt(str=message_epoch
                                        +message_1 + message_1_1 + message_1_2 + message_1_3
                                        +message_2 + message_2_1 + message_2_2 + message_2_3
                                        +message_3 + message_3_1 + message_3_2 + message_3_3
                                        +message_hv2+message_hv3+message_hv4+message_hv5
                                         +message_hv6+message_hv7+message_hv8+message_hv9
-                                        +message_hv10+message_hv11+message_hv12,
+                                        +message_hv10+message_hv11+message_hv12+message_soft
+                                        +message_soft_delete_number,
                                    filename=os.path.join(backup_path, 'train_log.txt'))
             # 保存模型
             if epoch % 10 == 0 :
@@ -1401,7 +1469,7 @@ class ConvNet():
         accuracy_1_list,accuracy_1_1_list,accuracy_1_2_list,accuracy_1_3_list,\
         accuracy_2_list,accuracy_2_1_list,accuracy_2_2_list,accuracy_2_3_list, \
         accuracy_3_list,accuracy_3_1_list,accuracy_3_2_list,accuracy_3_3_list,\
-        acc_decision_batch_dict =\
+        acc_decision_batch_dict,soft_result_acc_list =\
             self.get_all_acc_list(test_images, test_labels, dataloader.n_test, batch_size,is_train =self.is_training)
 
 
@@ -1442,19 +1510,25 @@ class ConvNet():
             np.mean(acc_decision_batch_dict['acc_decision_batch_hv11']))
         message_hv12 = ' acc_decision_batch_hv12: %.4f\n' % (
             np.mean(acc_decision_batch_dict['acc_decision_batch_hv12']))
+        message_soft = ' soft_result_acc_list: %.4f\n' % (
+            np.mean(soft_result_acc_list))
+        message_soft_delete_number = ' soft_delete_number: %d\n' % \
+                                     acc_decision_batch_dict['soft_delete_number_total']
+
         print_and_save_txt(str=  message_1 + message_1_1 + message_1_2 + message_1_3
                                + message_2 + message_2_1 + message_2_2 + message_2_3
                                + message_3 + message_3_1 + message_3_2 + message_3_3
                                +message_hv2 + message_hv3 + message_hv4 + message_hv5
                                +message_hv6 + message_hv7 + message_hv8 + message_hv9
-                               +message_hv10 + message_hv11 + message_hv12,
+                               +message_hv10 + message_hv11 + message_hv12 + message_soft
+                                 +message_soft_delete_number,
                            filename=os.path.join(backup_path, 'test_log.txt'))
 
 
         print_and_save_txt('aborted_num_hv2 {} aborted_num_hv3 {} aborted_num_hv4 {}\n'
                            'aborted_num_hv5 {} aborted_num_hv6 {} aborted_num_hv7 {}\n'
                            'aborted_num_hv8 {} aborted_num_hv9 {} aborted_num_hv10 {}\n'
-                           'aborted_num_hv11 {} aborted_num_hv12 {}\n'
+                           'aborted_num_hv11 {} aborted_num_hv12 {} \n'
                            .format(acc_decision_batch_dict['aborted_num_hv2'],
                                 acc_decision_batch_dict['aborted_num_hv3'],
                                 acc_decision_batch_dict['aborted_num_hv4'],
@@ -1465,7 +1539,8 @@ class ConvNet():
                                 acc_decision_batch_dict['aborted_num_hv9'],
                                 acc_decision_batch_dict['aborted_num_hv10'],
                                 acc_decision_batch_dict['aborted_num_hv11'],
-                                acc_decision_batch_dict['aborted_num_hv12']
+                                acc_decision_batch_dict['aborted_num_hv12'],
+
                                    )
                            ,filename=os.path.join(backup_path, 'test_log.txt'))
 

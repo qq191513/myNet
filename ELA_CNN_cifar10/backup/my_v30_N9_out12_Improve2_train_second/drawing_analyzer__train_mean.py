@@ -41,26 +41,30 @@ def curve_smooth(data_list, batch_size=100):
 
 	return new_data_list, idx_list
 
-def plot_curvev_v2(x,y_datas_dict,y_datas_legend_dict = None,description_dict={}):
-	colors=['b','r','y','k','c','m','g','tan','tomato']
-	line_styles= ['^--','+--','x--',':','o--','*--','s--','D--','.--']
-	plt.title(description_dict['title'])
-	plt.xlabel(description_dict['xlabel'])
-	plt.ylabel(description_dict['ylabel'])
-	p_legend = []
-	p_legend_name = []
-	y_datas_keys = y_datas_dict.keys()
-	for idx,y_datas_key in enumerate(y_datas_keys):
-		y_data_dict = y_datas_dict[y_datas_key]
-		p, =plt.plot(x, y_data_dict, line_styles[idx], color=colors[idx])
-		p_legend.append(p)
-		if y_datas_legend_dict is not None:
-			p_legend_name.append(y_datas_legend_dict[y_datas_key])
+def plot_curvev_v2(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={}):
+    colors=['b','r','y','k','c','m','g','tan','tomato']
+    line_styles= ['^--','+--','x--',':','o--','*--','s--','D--','.--']
+    # plt.switch_backend('agg')
+    plt.title(setting_dict['title'])
+    plt.xlabel(setting_dict['xlabel'])
+    plt.ylabel(setting_dict['ylabel'])
+    p_legend = []
+    p_legend_name = []
+    y_datas_keys = y_datas_dict.keys()
+    for idx,y_datas_key in enumerate(y_datas_keys):
+        y_data_dict = y_datas_dict[y_datas_key]
+        p, =plt.plot(x, y_data_dict, line_styles[idx], color=colors[idx])
+        p_legend.append(p)
+        if y_datas_legend_dict is not None:
+            p_legend_name.append(y_datas_legend_dict[y_datas_key])
 
-	if p_legend_name is not None:
-		plt.legend(p_legend, p_legend_name,loc='lower right')
-	plt.savefig('cifar10_compare1.png', dpi=100, format='png')
-	plt.show()
+    if p_legend_name is not None:
+        plt.legend(p_legend, p_legend_name,loc='lower right')
+
+    plt.grid()
+    plt.savefig(setting_dict['save_name'], dpi=100, format='png')
+    plt.show()
+
 import numpy as np
 def add_two_list(list_1,list_2):
     array_1 = np.array(list_1)
@@ -131,21 +135,24 @@ if __name__ =='__main__':
     # y_datas_legend_dict['net3_list']="N3_net3"
     # y_datas_legend_dict['acc_decision_batch_hv2_list']="acc_decision_batch_hv2"
     y_datas_legend_dict['mean_value_list']="avg_12_predict"
-    y_datas_legend_dict['acc_decision_batch_hv4_list']="acc_decision_batch_hv4"
-    y_datas_legend_dict['acc_decision_batch_hv6_list']="acc_decision_batch_hv6"
-    y_datas_legend_dict['acc_decision_batch_hv8_list']="acc_decision_batch_hv8"
-    y_datas_legend_dict['acc_decision_batch_hv10_list']="acc_decision_batch_hv10"
-    y_datas_legend_dict['acc_decision_batch_hv12_list']="acc_decision_batch_hv12"
+    y_datas_legend_dict['acc_decision_batch_hv4_list']="acc_hv4"
+    y_datas_legend_dict['acc_decision_batch_hv6_list']="acc_hv6"
+    y_datas_legend_dict['acc_decision_batch_hv8_list']="acc_hv8"
+    y_datas_legend_dict['acc_decision_batch_hv10_list']="acc_hv10"
+    y_datas_legend_dict['acc_decision_batch_hv12_list']="acc_hv12"
     # y_datas_legend_dict['decision_prediction_list']="N3_final_predict"
     # y_datas_legend_dict['net_N1_list']="N1"
 
     #标题、x轴、y轴显示信息
-    description_dict = OrderedDict()
-    description_dict['title'] = 'Mix_ELA-CNN v2 classification precision'
-    description_dict['xlabel'] = 'epoch'
-    description_dict['ylabel'] = 'accuracy'
+    setting_dict = OrderedDict()
+    setting_dict['title'] = 'ELA-DCNN classification precision'
+    setting_dict['xlabel'] = 'epoch'
+    setting_dict['ylabel'] = 'accuracy'
+    setting_dict['save_name'] ='cifar10_compare5.png'
 
     #传入字典参数并画图
-    plot_curvev_v2(x_datas_dict['epoch_list'],y_datas_dict,y_datas_legend_dict,description_dict)
+    plot_curvev_v2(x_datas_dict['epoch_list'],y_datas_dict,y_datas_legend_dict,setting_dict)
+
+
 
 

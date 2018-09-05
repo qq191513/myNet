@@ -2,14 +2,15 @@
 # author: ronniecao
 import os
 from src.data.cifar10 import Corpus
-from keras import backend as K
-K.clear_session()
-os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+# from keras import backend as K
+# K.clear_session()
+# os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 from collections import namedtuple
-cifar10 = Corpus()
+
 
 def my_cnn():
+    cifar10 = Corpus()
     from src.model.my_cnn import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24)
     # convnet.debug()
@@ -17,6 +18,7 @@ def my_cnn():
     convnet.test(dataloader=cifar10, backup_path='backup/cifar10-v4/', epoch=25, batch_size=128)
 
 def basic_cnn():
+    cifar10 = Corpus()
     from src.model.basic_cnn import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24)
     # convnet.debug()
@@ -26,6 +28,7 @@ def basic_cnn():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
     
 def plain_cnn():
+    cifar10 = Corpus()
     from src.model.plain_cnn import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24)
     # convnet.debug()
@@ -35,6 +38,7 @@ def plain_cnn():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
     
 def residual_net_L20():
+    cifar10 = Corpus()
     from src.model.residual_net_L20 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=20)
     # convnet.debug()
@@ -44,6 +48,7 @@ def residual_net_L20():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
 
 def my_residual_v1_N3L20():
+    cifar10 = Corpus()
     from src.model.my_residual_v1_N3L20 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=20)
     # convnet.debug()
@@ -53,6 +58,7 @@ def my_residual_v1_N3L20():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
 
 def my_residual_v2_N4L20():
+    cifar10 = Corpus()
     from src.model.my_residual_v2_N4L20 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=20)
     # convnet.debug()
@@ -62,6 +68,7 @@ def my_residual_v2_N4L20():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
 
 def my_residual_v3_N5L20():
+    cifar10 = Corpus()
     from src.model.my_residual_v3_N5L20 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=20)
     # convnet.debug()
@@ -76,6 +83,7 @@ def my_residual_v3_N5L20():
 
 
 def residual_net_v4_N1L44():
+    cifar10 = Corpus()
     from src.model.my_residual_v4_N1L44 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
     # convnet.debug()
@@ -84,6 +92,7 @@ def residual_net_v4_N1L44():
 
 
 def my_residual_v5_N3L44():
+    cifar10 = Corpus()
     from src.model.my_residual_v5_N3L44 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
     # convnet.debug()
@@ -93,6 +102,7 @@ def my_residual_v5_N3L44():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
 
 def my_residual_v6_RES1_CON14_CON8():
+    cifar10 = Corpus()
     from src.model.my_residual_v6_RES1_CON14_CON8 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
     # convnet.debug()
@@ -102,6 +112,7 @@ def my_residual_v6_RES1_CON14_CON8():
     # convnet.observe_hidden_distribution(batch_size=128, n_channel=3, num_test=1, epoch=980)
 
 def my_v7_N1_squeeze():
+    cifar10 = Corpus()
     from src.model.my_v7_N1_squeeze import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32)
     # convnet.debug()
@@ -112,6 +123,7 @@ def my_v7_N1_squeeze():
 
 
 def my_v8_N5_squeeze():
+    cifar10 = Corpus()
     from src.model.my_v8_N5_squeeze import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32)
     # convnet.debug()
@@ -122,42 +134,49 @@ def my_v8_N5_squeeze():
 
 
 def my_v9_N3_squeeze():
+    cifar10 = Corpus()
     from src.model.my_v9_N3_squeeze import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v9_N3_squeeze/', batch_size=128, n_epoch=1)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v9_N3_squeeze/', epoch=1, batch_size=128)
 
 def my_v10_N3_plain_cnn_L14():
+    cifar10 = Corpus()
     from src.model.my_v10_N3_plain_cnn_L14 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32)
     # convnet.train(dataloader=cifar10, backup_path='backup/my_v10_N3_plain_cnn_L14/', batch_size=64, n_epoch=200)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v10_N3_plain_cnn_L14/', epoch=200, batch_size=64)
 
 def my_v11_N1_plain_cnn_L14():
+    cifar10 = Corpus()
     from src.model.my_v11_N1_plain_cnn_L14 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=32, n_layers=44)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v11_N1_plain_cnn_L14/', batch_size=64, n_epoch=200)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v11_N1_plain_cnn_L14/', epoch=200, batch_size=64)
 
 def my_v12_N3_reidual_L44():
+    cifar10 = Corpus()
     from src.model.my_v12_N3_reidual_L44 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
     # convnet.train(dataloader=cifar10, backup_path='backup/my_v12_N3_reidual_L44/', batch_size=64, n_epoch=150)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v12_N3_reidual_L44/', epoch=150, batch_size=64)
 
 def my_v13_N1_reidual_L44():
+    cifar10 = Corpus()
     from src.model.my_v13_N1_reidual_L44 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v13_N1_reidual_L44/', batch_size=64, n_epoch=150)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v13_N1_reidual_L44/', epoch=150, batch_size=64)
 
 def my_v14_N5_reidual_L44():
+    cifar10 = Corpus()
     from src.model.my_v14_N5_reidual_L44 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=44)
     # convnet.train(dataloader=cifar10, backup_path='backup/my_v14_N5_reidual_L44/', batch_size=64, n_epoch=150)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v14_N5_reidual_L44/', epoch=150, batch_size=64)
 
 def my_v15_N1_reidual_L32_google_v2():
+    cifar10 = Corpus()
     from src.model.my_v15_N1_R_Gv2 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v15_N1_reidual_L32/', batch_size=64, n_epoch=50)
@@ -165,24 +184,28 @@ def my_v15_N1_reidual_L32_google_v2():
 
 
 def my_v16_N1_reidual_L32_google_v3():
+    cifar10 = Corpus()
     from src.model.my_v16_N1_R_Gv3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v16_N1_reidual_L32/', batch_size=64, n_epoch=50)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v16_N1_reidual_L32/', epoch=50, batch_size=64)
 
 def my_v17_N1_reidual_L32_plain_L3():
+    cifar10 = Corpus()
     from src.model.my_v17_N1_R_L3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v17_N1_reidual_L32_plain_L3/', batch_size=64, n_epoch=50)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v17_N1_reidual_L32_plain_L3/', epoch=50, batch_size=64)
 
 def my_v18_N3_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v18_N3_Mix_before3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32)
     # convnet.train(dataloader=cifar10, backup_path='backup/my_v18_N3_Mix_before3/', batch_size=64, n_epoch=50)
     convnet.test(dataloader=cifar10,backup_path='backup/my_v18_N3_Mix_before3/', epoch=50, batch_size=64)
 
 def my_v19_N9_out9_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v19_N9_out4_Mix_before3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v19_N9_out9_Mix_before3/', batch_size=64, n_epoch=50)
@@ -192,6 +215,7 @@ def my_v19_N9_out9_Mix_before3():
 
 
 def my_v20_N9_out5_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v21_N9_out6_Mix_before3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v20_N9_out5_Mix_before3/', batch_size=64, n_epoch=50)
@@ -200,6 +224,7 @@ def my_v20_N9_out5_Mix_before3():
     # convnet.test(dataloader=cifar10,backup_path='backup/my_v20_N9_out5_Mix_before3/', epoch=50, batch_size=64)
 
 def my_v21_N9_out6_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v21_N9_out6_Mix_before3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v21_N9_out6_Mix_before3/', batch_size=64, n_epoch=50)
@@ -208,6 +233,7 @@ def my_v21_N9_out6_Mix_before3():
     # convnet.test(dataloader=cifar10,backup_path='backup/my_v20_N9_out5_Mix_before3/', epoch=50, batch_size=64)
 
 def my_v22_N9_out7_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v22_N9_out7_Mix_before3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v22_N9_out7_Mix_before3/', batch_size=64, n_epoch=50)
@@ -216,6 +242,7 @@ def my_v22_N9_out7_Mix_before3():
     # convnet.test(dataloader=cifar10,backup_path='backup/my_v20_N9_out5_Mix_before3/', epoch=50, batch_size=64)
 
 def my_v23_N9_out9_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v23_N9_out9_Mix_before3 import ConvNet
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True)
     convnet.train(dataloader=cifar10, backup_path='backup/my_v23_N9_out9_Mix_before3/', batch_size=64, n_epoch=50)
@@ -226,6 +253,7 @@ def my_v23_N9_out9_Mix_before3():
 
 
 def my_v24_N9_out9_Mix_before3_S():
+    cifar10 = Corpus()
     from src.model.my_v24_N9_out9_Mix_before3_S import ConvNet
     debug_mode = True
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True,debug_mode=debug_mode)
@@ -235,6 +263,7 @@ def my_v24_N9_out9_Mix_before3_S():
     # convnet.test(dataloader=cifar10,backup_path='backup/my_v24_N9_out9_Mix_before3_S/', epoch=50, batch_size=64)
 
 def my_v25_N9_out9_Mix_before3_ST2():
+    cifar10 = Corpus()
     from src.model.my_v25_N9_out9_Mix_before3_ST2 import ConvNet
     debug_mode = True
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True,debug_mode=debug_mode)
@@ -244,6 +273,7 @@ def my_v25_N9_out9_Mix_before3_ST2():
     # convnet.test(dataloader=cifar10, backup_path='backup/my_v25_N9_out9_Mix_before3_ST2/', epoch=50, batch_size=64)
     #
 def my_v26_N9_out11_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v26_N9_out10_Mix_before3 import ConvNet
     setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset'])
     setting(debug_mode =False,only_test_small_part_dataset=True)
@@ -254,6 +284,7 @@ def my_v26_N9_out11_Mix_before3():
     # convnet.test(dataloader=cifar10, backup_path='backup/my_v26_N9_out11_Mix_before3/', epoch=50, batch_size=64)
 
 def my_v27_N9_out11_Mix_before3():
+    cifar10 = Corpus()
     from src.model.my_v27_N9_out11_Mix_before3 import ConvNet
     setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset'])
     setting = setting(debug_mode =False,only_test_small_part_dataset=True)
@@ -264,6 +295,7 @@ def my_v27_N9_out11_Mix_before3():
     # convnet.test(dataloader=cifar10, backup_path='backup/my_v27_N9_out11_Mix_before3/', epoch=50, batch_size=64)
 
 def my_v28_N9_out12_Mix():
+    cifar10 = Corpus()
     from src.model.my_v28_N9_out12_Mix import ConvNet
     setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset'])
 
@@ -276,18 +308,20 @@ def my_v28_N9_out12_Mix():
     convnet.test(dataloader=cifar10, backup_path='backup/my_v28_N9_out12_Mix/', epoch=50, batch_size=64)
 
 def my_v29_N9_out12_Improve1():
+    cifar10 = Corpus()
     from src.model.my_v29_N9_out12_Improve1 import ConvNet
     setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset'])
 
-    # setting = setting(debug_mode =False,only_test_small_part_dataset=True)
-    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True,setting=setting)
-    # convnet.train(dataloader=cifar10, backup_path='backup/my_v29_N9_out12_Improve1/', batch_size=64, n_epoch=50)
+    setting = setting(debug_mode =False,only_test_small_part_dataset=True)
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True,setting=setting)
+    convnet.train(dataloader=cifar10, backup_path='backup/my_v29_N9_out12_Improve1/', batch_size=64, n_epoch=50)
 
-    setting = setting(debug_mode =False,only_test_small_part_dataset=False)
-    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,setting=setting)
-    convnet.test(dataloader=cifar10, backup_path='backup/my_v29_N9_out12_Improve1/', epoch=30, batch_size=64)
+    # setting = setting(debug_mode =False,only_test_small_part_dataset=False)
+    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,setting=setting)
+    # convnet.test(dataloader=cifar10, backup_path='backup/my_v29_N9_out12_Improve1/', epoch=30, batch_size=64)
 
 def my_v30_N9_out12_Improve2():
+    cifar10 = Corpus()
     from src.model.my_v30_N9_out12_Improve2 import ConvNet
     setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset',
                                     'test_proprotion','start_n_epoch'])
@@ -301,6 +335,75 @@ def my_v30_N9_out12_Improve2():
                   start_n_epoch = 51,test_proprotion=0.9)
     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,setting=setting)
     convnet.test(dataloader=cifar10, backup_path='backup/my_v30_N9_out12_Improve2_train_second/', epoch=150, batch_size=64)
+
+
+
+def my_v31_N9_out12_6_kinds():
+    cifar10 = Corpus()
+    from src.model.my_v31_N9_out12_6_kinds import ConvNet
+    setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset',
+                                    'test_proprotion','start_n_epoch'])
+
+    # setting = setting(debug_mode =False,only_test_small_part_dataset=True,
+    #                   start_n_epoch = 0,test_proprotion=0.9)
+    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True,setting=setting)
+    # convnet.train(dataloader=cifar10, backup_path='backup/my_v31_N9_out12_6_kinds/', batch_size=64, n_epoch=150)
+
+    setting = setting(debug_mode =False,only_test_small_part_dataset=False,
+                  start_n_epoch = 0,test_proprotion=0.9)
+    convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,setting=setting)
+    convnet.test(dataloader=cifar10, backup_path='backup/my_v31_N9_out12_6_kinds/', epoch=150, batch_size=64)
+
+from src.model.my_v32_super_30_30_31 import ConvNet_6_kinds
+from src.model.my_v32_super_30_30_31 import ConvNet_4_kinds
+from src.model.my_v32_super_30_30_31 import get_sess
+from src.model.my_v32_super_30_30_31 import test
+def my_v32_super_30_30_31():
+    cifar10 = Corpus()
+
+    setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset',
+                                    'test_proprotion','start_n_epoch'])
+
+    sess_list = []
+    ConvNet_list = []
+    setting = setting(debug_mode =False,only_test_small_part_dataset=False,
+                  start_n_epoch = 0,test_proprotion=0.9)
+
+
+    convnet_6_kind = ConvNet_6_kinds(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,
+                                      setting=setting)
+    sess_1 = get_sess(backup_path='backup/my_v31_N9_out12_6_kinds/',epoch =150)
+
+    ConvNet_4_kind = ConvNet_4_kinds(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,
+                                      setting=setting)
+    sess_2 = get_sess(backup_path='backup/my_v30_N9_out12_Improve2_train_second/',epoch =150)
+
+
+    ConvNet_list.append(convnet_6_kind)
+    ConvNet_list.append(ConvNet_4_kind)
+    sess_list.append(sess_1)
+    sess_list.append(sess_2)
+
+    test(sess_list, ConvNet_list,setting,dataloader=cifar10, backup_path='backup/my_v32_super_30_30_31/', batch_size=64,is_training = False)
+
+
+# def my_v33_N9_out12_6_kinds_cifar100():
+#     from src.data.cifar100 import Corpus
+#     cifar100 = Corpus()
+#     from src.model.my_v33_N9_out12_6_kinds_cifar100 import ConvNet
+#     setting = namedtuple('setting',['debug_mode','only_test_small_part_dataset',
+#                                     'test_proprotion','start_n_epoch'])
+#
+#     setting = setting(debug_mode =False,only_test_small_part_dataset=True,
+#                       start_n_epoch = 0,test_proprotion=0.9)
+#     convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32,is_training =True,setting=setting)
+#     convnet.train(dataloader=cifar100, backup_path='backup/my_v33_N9_out12_6_kinds_cifar100/', batch_size=64, n_epoch=150)
+
+    # setting = setting(debug_mode =False,only_test_small_part_dataset=False,
+    #               start_n_epoch = 51,test_proprotion=0.9)
+    # convnet = ConvNet(n_channel=3, n_classes=10, image_size=24, n_layers=32, is_training=False,setting=setting)
+    # convnet.test(dataloader=cifar10, backup_path='backup/my_v33_N9_out12_6_kinds_cifar100/', epoch=150, batch_size=64)
+
 
 
 # my_cnn()
@@ -332,9 +435,9 @@ def my_v30_N9_out12_Improve2():
 # my_v27_N9_out11_Mix_before3()
 # my_v28_N9_out12_Mix()
 # my_v29_N9_out12_Improve1()
-my_v30_N9_out12_Improve2()
-
-
+# my_v30_N9_out12_Improve2()
+# my_v31_N9_out12_6_kinds()
+my_v32_super_30_30_31()
 
 
 
