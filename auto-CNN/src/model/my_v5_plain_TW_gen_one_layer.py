@@ -14,83 +14,100 @@ from src.tflayers.dense_layer import DenseLayer
 from collections import namedtuple
 from src.data.cifar10 import Corpus
 cifar10 = Corpus()
-
+slim = tf.contrib.slim
 class ConvNet():
 
-    def __init__(self, network_path, n_channel=3, n_classes=10, image_size=24,setting =None):
-        # 输入变量
-        self.images = tf.placeholder(
-            dtype=tf.float32, shape=[None, image_size, image_size, n_channel], name='images')
-        self.labels = tf.placeholder(
-            dtype=tf.int64, shape=[None], name='labels')
-        self.keep_prob = tf.placeholder(
-            dtype=tf.float32, name='keep_prob')
-        self.global_step = tf.Variable(
-            0, dtype=tf.int32, name='global_step')
-        self.setting = setting
-        self.batch_size = self.setting.batch_size
-        network_option_path = os.path.join(network_path)
-        self.network_option = yaml.load(open(network_option_path, 'r'))
-        # 网络结构
-        print()
-        self.conv_lists, self.dense_lists = [], []
-        for layer_dict in self.network_option['net']['conv_first']:
-            layer = ConvLayer(
-                x_size=layer_dict['x_size'], y_size=layer_dict['y_size'],
-                x_stride=layer_dict['x_stride'], y_stride=layer_dict['y_stride'],
-                n_filter=layer_dict['n_filter'], activation=layer_dict['activation'],
-                batch_normal=layer_dict['bn'], weight_decay=1e-4,
-                data_format='channels_last', name=layer_dict['name'],
-                input_shape=(image_size, image_size, n_channel))
-            self.conv_lists.append(layer)
+    def __init__(self,dataloader=None, n_channel=3, n_classes=10, image_size=24,network_path=None,setting =None,scope_name=None):
 
-        for layer_dict in self.network_option['net']['conv']:
-            if layer_dict['type'] == 'conv':
+        with tf.variable_scope(scope_name):
+            # 输入变量
+            self.image_size = image_size
+            self.images = tf.placeholder(
+                dtype=tf.float32, shape=[None, self.image_size, self.image_size, n_channel], name='images')
+            self.labels = tf.placeholder(
+                dtype=tf.int64, shape=[None], name='labels')
+            self.keep_prob = tf.placeholder(
+                dtype=tf.float32, name='keep_prob')
+            self.global_step = tf.Variable(
+                0, dtype=tf.int32, name='global_step')
+            self.setting = setting
+            self.batch_size = self.setting.batch_size
+            network_option_path = os.path.join(network_path)
+            self.network_option = yaml.load(open(network_option_path, 'r'))
+            self.dataloader=dataloader
+
+            # 网络结构
+            print()
+            self.conv_lists, self.dense_lists = [], []
+            for layer_dict in self.network_option['net']['conv_first']:
                 layer = ConvLayer(
                     x_size=layer_dict['x_size'], y_size=layer_dict['y_size'],
                     x_stride=layer_dict['x_stride'], y_stride=layer_dict['y_stride'],
                     n_filter=layer_dict['n_filter'], activation=layer_dict['activation'],
                     batch_normal=layer_dict['bn'], weight_decay=1e-4,
-                    data_format='channels_last', name=layer_dict['name'], prev_layer=layer)
-            elif layer_dict['type'] == 'pool':
-                layer = PoolLayer(
-                    x_size=layer_dict['x_size'], y_size=layer_dict['y_size'],
-                    x_stride=layer_dict['x_stride'], y_stride=layer_dict['y_stride'],
-                    mode=layer_dict['mode'], resp_normal=False,
-                    data_format='channels_last', name=layer_dict['name'], prev_layer=layer)
-            self.conv_lists.append(layer)
+                    data_format='channels_last', name=layer_dict['name'],
+                    input_shape=(image_size, image_size, n_channel))
+                self.conv_lists.append(layer)
 
-        for layer_dict in self.network_option['net']['dense_first']:
-            layer = DenseLayer(
-                hidden_dim=layer_dict['hidden_dim'], activation=layer_dict['activation'],
-                dropout=layer_dict['dropout'], keep_prob=self.keep_prob,
-                batch_normal=layer_dict['bn'], weight_decay=1e-4,
-                name=layer_dict['name'],
-                input_shape=(int(image_size / 8) * int(image_size / 8) * 256,))
-            self.dense_lists.append(layer)
-        for layer_dict in self.network_option['net']['dense']:
-            layer = DenseLayer(
-                hidden_dim=layer_dict['hidden_dim'], activation=layer_dict['activation'],
-                dropout=layer_dict['dropout'], keep_prob=self.keep_prob,
-                batch_normal=layer_dict['bn'], weight_decay=1e-4,
-                name=layer_dict['name'], prev_layer=layer)
-            self.dense_lists.append(layer)
-        print()
+            for layer_dict in self.network_option['net']['conv']:
+                if layer_dict['type'] == 'conv':
+                    layer = ConvLayer(
+                        x_size=layer_dict['x_size'], y_size=layer_dict['y_size'],
+                        x_stride=layer_dict['x_stride'], y_stride=layer_dict['y_stride'],
+                        n_filter=layer_dict['n_filter'], activation=layer_dict['activation'],
+                        batch_normal=layer_dict['bn'], weight_decay=1e-4,
+                        data_format='channels_last', name=layer_dict['name'], prev_layer=layer)
+                elif layer_dict['type'] == 'pool':
+                    layer = PoolLayer(
+                        x_size=layer_dict['x_size'], y_size=layer_dict['y_size'],
+                        x_stride=layer_dict['x_stride'], y_stride=layer_dict['y_stride'],
+                        mode=layer_dict['mode'], resp_normal=False,
+                        data_format='channels_last', name=layer_dict['name'], prev_layer=layer)
+                self.conv_lists.append(layer)
 
-        # 数据流
-        hidden_state = self.images
-        for layer in self.conv_lists:
-            hidden_state = layer.get_output(inputs=hidden_state)
-        hidden_state = tf.reshape(hidden_state, [-1, int(image_size / 8) * int(image_size / 8) * 256])
-        for layer in self.dense_lists:
-            hidden_state = layer.get_output(inputs=hidden_state)
-        logits = hidden_state
+            for layer_dict in self.network_option['net']['dense_first']:
+                layer = DenseLayer(
+                    hidden_dim=layer_dict['hidden_dim'], activation=layer_dict['activation'],
+                    dropout=layer_dict['dropout'], keep_prob=self.keep_prob,
+                    batch_normal=layer_dict['bn'], weight_decay=1e-4,
+                    name=layer_dict['name'],
+                    input_shape=(int(image_size / 8) * int(image_size / 8) * 256,))
+                self.dense_lists.append(layer)
+            for layer_dict in self.network_option['net']['dense']:
+                layer = DenseLayer(
+                    hidden_dim=layer_dict['hidden_dim'], activation=layer_dict['activation'],
+                    dropout=layer_dict['dropout'], keep_prob=self.keep_prob,
+                    batch_normal=layer_dict['bn'], weight_decay=1e-4,
+                    name=layer_dict['name'], prev_layer=layer)
+                self.dense_lists.append(layer)
+            print()
 
-        # 目标函数
-        self.objective = tf.reduce_mean(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(
-                logits=logits, labels=self.labels))
-        self.avg_loss = self.objective
+            # 数据流
+
+            self.generate_first_dict =self.generate_first_dataflow(scope_name)
+
+
+
+
+    def generate_first_dataflow(self,scope_name):
+
+        with tf.variable_scope(scope_name):
+            # init_w = False
+            # if init_w == False:
+            #     self.sess.run(tf.global_variables_initializer())
+            #     init_w = True
+            hidden_state = self.images
+            for layer in self.conv_lists:
+                hidden_state = layer.get_output(inputs=hidden_state)
+            hidden_state = tf.reshape(hidden_state, [-1, int(self.image_size / 8) * int(self.image_size / 8) * 256])
+            for layer in self.dense_lists:
+                hidden_state = layer.get_output(inputs=hidden_state)
+            logits_op = hidden_state
+            # 目标函数
+            objective = tf.reduce_mean(
+                tf.nn.sparse_softmax_cross_entropy_with_logits(
+                    logits=logits_op, labels=self.labels))
+            avg_loss_op = objective
 
             # 优化器
             lr = tf.cond(tf.less(self.global_step, 20000),
@@ -107,7 +124,55 @@ class ConvNet():
 
             wrong_idx_op = tf.where(correct_prediction)
 
-        self.wrong_idx = tf.where(correct_prediction)
+            generate_son_dict ={'logits_op':logits_op,
+                              'avg_loss_op':avg_loss_op,
+                              'optimizer_op':optimizer_op,
+                              'accuracy_op':accuracy_op,
+                              'wrong_idx_op':wrong_idx_op}
+
+
+            return generate_son_dict
+
+    def generate_son_dataflow(self, scope_name):
+
+            with tf.variable_scope(scope_name):
+                hidden_state = self.images
+                for layer in self.conv_lists:
+                    hidden_state = layer.get_output(inputs=hidden_state)
+                hidden_state = tf.reshape(hidden_state, [-1, int(self.image_size / 8) * int(self.image_size / 8) * 256])
+                for layer in self.dense_lists:
+                    hidden_state = layer.get_output(inputs=hidden_state)
+                logits_op = hidden_state
+                # 目标函数
+                objective = tf.reduce_mean(
+                    tf.nn.sparse_softmax_cross_entropy_with_logits(
+                        logits=logits_op, labels=self.labels))
+                avg_loss_op = objective
+
+                # 优化器
+                lr = tf.cond(tf.less(self.global_step, 20000),
+                             lambda: tf.constant(0.01),
+                             lambda: tf.cond(tf.less(self.global_step, 40000),
+                                             lambda: tf.constant(0.0001),
+                                             lambda: tf.constant(0.00001)))
+                optimizer_op = tf.train.AdamOptimizer(learning_rate=lr).minimize(
+                    avg_loss_op, global_step=self.global_step)
+
+                # 观察值
+                correct_prediction = tf.equal(self.labels, tf.argmax(logits_op, 1))
+                accuracy_op = tf.reduce_mean(tf.cast(correct_prediction, 'float'))
+
+                wrong_idx_op = tf.where(correct_prediction)
+
+                generate_son_dict = {'logits_op': logits_op,
+                                     'avg_loss_op': avg_loss_op,
+                                     'optimizer_op': optimizer_op,
+                                     'accuracy_op': accuracy_op,
+                                     'wrong_idx_op': wrong_idx_op}
+
+                self.sess.run(tf.global_variables_initializer())
+                return generate_son_dict
+
 
     def get_wrong_images(self,images,labels):
         # if np.isnan(images) == True:
@@ -199,18 +264,90 @@ class ConvNet():
 
         return work_done
 
+    def backpropagation_son(self,train_images, train_labels):
+        optimizer_op= self.generate_son_dict['optimizer_op']
+        accuracy_op= self.generate_son_dict['accuracy_op']
 
+        n_train = train_images.shape[0]
+        start_pos = 0
+        if self.setting.only_test_small_part_dataset:
+            start_pos = int(n_train * self.setting.test_proprotion)
+        if self.setting.debug_mode:
+            start_pos = int(n_train * self.setting.test_proprotion)
 
+        # 反向传播优化Model
+        for k in range(5):
+            print('son backpropagation %d' % k)
+            for i in range(start_pos, n_train, self.batch_size):
+                batch_images = train_images[i: i + self.batch_size]
+                batch_labels = train_labels[i: i + self.batch_size]
+                [_,acc, iteration] = self.sess.run(
+                    fetches=[optimizer_op,accuracy_op,self.global_step],
+                    feed_dict={self.images: batch_images,
+                               self.labels: batch_labels,
+                               self.keep_prob: 0.5})
 
+        return iteration,acc
 
-    def train(self, dataloader, backup_path, n_epoch=5):
+    def backpropagation(self,train_images,train_labels):
+        optimizer_op = self.generate_first_dict['optimizer_op']
+        avg_loss_op = self.generate_first_dict['avg_loss_op']
+
+        train_loss = 0.0
+
+        n_train = train_images.shape[0]
+        start_pos = 0
+        if self.setting.only_test_small_part_dataset:
+            start_pos = int(n_train * self.setting.test_proprotion)
+        if self.setting.debug_mode:
+            start_pos = int(n_train * self.setting.test_proprotion)
+
+        # 反向传播优化Model
+        for i in range(start_pos, n_train, self.batch_size):
+            batch_images = train_images[i: i + self.batch_size]
+            batch_labels = train_labels[i: i + self.batch_size]
+            [_, get_avg_loss, iteration] = self.sess.run(
+                fetches=[optimizer_op, avg_loss_op, self.global_step],
+                feed_dict={self.images: batch_images,
+                           self.labels: batch_labels,
+                           self.keep_prob: 0.5})
+            train_loss += get_avg_loss * batch_images.shape[0]
+        return train_loss,iteration
+
+    def get_valid_loss_and_acc(self,generate_dict, valid_images, valid_labels):
+        accuracy_op = generate_dict['accuracy_op']
+        avg_loss_op = generate_dict['avg_loss_op']
+
+        valid_accuracy, valid_loss = 0.0, 0.0
+        start_pos = 0
+        if self.setting.only_test_small_part_dataset:
+            start_pos = int(self.dataloader.n_valid * self.setting.test_proprotion)
+        if self.setting.debug_mode:
+            start_pos = int(self.dataloader.n_valid * self.setting.test_proprotion)
+
+        for i in range(start_pos, self.dataloader.n_valid, self.batch_size):
+            batch_images = valid_images[i: i + self.batch_size]
+            batch_labels = valid_labels[i: i + self.batch_size]
+            [get_avg_accuracy, get_avg_loss] = self.sess.run(
+                fetches=[accuracy_op, avg_loss_op],
+                feed_dict={self.images: batch_images,
+                           self.labels: batch_labels,
+                           self.keep_prob: 1.0})
+            valid_accuracy += get_avg_accuracy * batch_images.shape[0]
+            valid_loss += get_avg_loss * batch_images.shape[0]
+        valid_accuracy = 1.0 * valid_accuracy / self.dataloader.n_valid
+        valid_loss = 1.0 * valid_loss / self.dataloader.n_valid
+        return valid_accuracy, valid_loss
+
+    def train_init(self,backup_path):
+
         if not os.path.exists(backup_path):
             os.makedirs(backup_path)
         # 构建会话
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
         self.sess = tf.Session(config=config)
-        
+
         # 模型保存器
         # self.saver = tf.train.Saver(
         #     var_list=tf.global_variables(), write_version=tf.train.SaverDef.V2,
@@ -226,73 +363,56 @@ class ConvNet():
         #     self.sess.run(tf.global_variables_initializer())
 
         self.sess.run(tf.global_variables_initializer())
-
-        # 模型训练
         print()
+
+    def train(self, backup_path, n_epoch=5):
+        self.train_init(backup_path)
+        # 模型训练
+
         for epoch in range(0, n_epoch+1):
-            
+
             # 数据增强
             st = time.time()
-            train_images = dataloader.data_augmentation(dataloader.train_images, mode='train',
+            train_images = self.dataloader.data_augmentation(self.dataloader.train_images, mode='train',
                 flip=True, crop=True, crop_shape=(24,24,3), whiten=True, noise=False)
-            train_labels = dataloader.train_labels
-            valid_images = dataloader.data_augmentation(dataloader.valid_images, mode='test',
+            train_labels = self.dataloader.train_labels
+            valid_images = self.dataloader.data_augmentation(self.dataloader.valid_images, mode='test',
                 flip=False, crop=True, crop_shape=(24,24,3), whiten=True, noise=False)
-            valid_labels = dataloader.valid_labels
+            valid_labels = self.dataloader.valid_labels
+            train_wrong_parament = {'epoch': epoch,
+                                    'epoch_wrong': 0,
+                                    'train_times': 5}
             et = time.time()
 
             # 开始本轮的训练，反向传播，并计算目标函数值
-            train_loss = 0.0
-            st = time.time()
-            n_test = dataloader.n_train
-            start_pos = 0
-            if self.setting.only_test_small_part_dataset:
-                start_pos = int(n_test * self.setting.test_proprotion)
-            if self.setting.debug_mode:
-                start_pos = int(n_test * self.setting.test_proprotion)
+            train_loss,iteration = self.backpropagation(train_images, train_labels)
 
-            #反向传播优化Model
-            for i in range(start_pos, n_test, self.batch_size):
-                batch_images = train_images[i: i+self.batch_size]
-                batch_labels = train_labels[i: i+self.batch_size]
-                [_, avg_loss, iteration] = self.sess.run(
-                    fetches=[self.optimizer, self.avg_loss, self.global_step], 
-                    feed_dict={self.images: batch_images, 
-                               self.labels: batch_labels, 
-                               self.keep_prob: 0.5})
-                train_loss += avg_loss * batch_images.shape[0]
+
+            if 0==epoch:
+                scope_name= 'generate_%d' %(epoch)
+                self.generate_son_dict = self.generate_son_dataflow(scope_name)
+                iteration, son_train_accuracy =self.backpropagation_son(train_images, train_labels)
+                son_valid_accuracy, son_valid_loss = self.get_valid_loss_and_acc(
+                    self.generate_son_dict, valid_images, valid_labels)
+                if self.setting.output_graph:
+                    print('summary graph...........')
+                    tf.summary.FileWriter("logs/", self.sess.graph)
+
+                print('son----valid loss: %.6f,valid precision: %.6f\n' % (
+                    son_valid_loss, son_valid_accuracy))
+
 
 
             #训错模式
-            train_wrong_parament = {'epoch':epoch,
-                                    'epoch_wrong':0,
-                                    'train_times':5}
-            self.train_wrong_many_times(train_images, train_labels,train_wrong_parament)
+            # self.train_wrong_many_times(train_images, train_labels,train_wrong_parament)
 
             # 在训练之后，获得本轮的验证集损失值和准确率
-            valid_accuracy, valid_loss = 0.0, 0.0
-            start_pos = 0
-            if self.setting.only_test_small_part_dataset:
-                start_pos = int(dataloader.n_valid * self.setting.test_proprotion)
-            if self.setting.debug_mode:
-                start_pos = int(dataloader.n_valid * self.setting.test_proprotion)
-
-            for i in range(start_pos, dataloader.n_valid, self.batch_size):
-                batch_images = valid_images[i: i + self.batch_size]
-                batch_labels = valid_labels[i: i + self.batch_size]
-                [avg_accuracy, avg_loss] = self.sess.run(
-                    fetches=[self.accuracy, self.avg_loss],
-                    feed_dict={self.images: batch_images,
-                               self.labels: batch_labels,
-                               self.keep_prob: 1.0})
-                valid_accuracy += avg_accuracy * batch_images.shape[0]
-                valid_loss += avg_loss * batch_images.shape[0]
-            valid_accuracy = 1.0 * valid_accuracy / dataloader.n_valid
-            valid_loss = 1.0 * valid_loss / dataloader.n_valid
+            valid_accuracy, valid_loss = self.get_valid_loss_and_acc(
+                self.generate_first_dict,valid_images, valid_labels)
 
             et = time.time()
             data_span = et - st
-            print('epoch[%d], iter[%d], valid loss: %.6f, valid precision: %.6f data_span :%.6f\n' % (
+            print('epoch[%d], iter[%d], valid loss: %.6f, valid precision: %.6f data_span :%d s\n' % (
                       epoch, iteration, valid_loss, valid_accuracy,data_span))
 
             # 保存模型

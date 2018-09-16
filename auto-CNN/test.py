@@ -1,7 +1,8 @@
-from collections import namedtuple
+import tensorflow as tf
 
-train_wrong_parament = namedtuple('train_wrong_parament',
-                                  ['epoch', 'epoch_wrong', 'train_times'])
 
-train_wrong_parament = train_wrong_parament(epoch=5, epoch_wrong=0, train_times=5)
-print(train_wrong_parament)
+
+u_1 = tf.placeholder(tf.float32, [784, 784])
+first_layer_u = tf.layers.dense(X_, n_params, activation=None,
+                              kernel_initializer=u_1,
+                              bias_initializer=tf.keras.initializers.he_normal())
