@@ -11,7 +11,8 @@ ckpt =cfg.ckpt
 batch_size = cfg.batch_size
 input_shape = cfg.input_shape
 class_num = cfg.num_class
-dataset_root =cfg.dataset_root
+dataset_path =cfg.dataset_path
+epoch = cfg.epoch
 ##############################      end    ########################################
 
 
@@ -25,7 +26,7 @@ dataset_root =cfg.dataset_root
 os.makedirs(ckpt,exist_ok=True)
 session_config = cfg.set_gpu()
 with tf.Session(config = session_config) as sess:
-    mnist = input_data.read_data_sets(dataset_root, one_hot=True)
+    mnist = input_data.read_data_sets(dataset_path, one_hot=True)
     # 计算有多少批次
     n_batch = mnist.train.num_examples // batch_size
     # 构建网络
@@ -45,8 +46,9 @@ with tf.Session(config = session_config) as sess:
     # 设置训练日志
     summary_dict = {'loss':loss,'accuracy':accuracy}
     summary_writer, summary_op = cfg.set_summary(sess,summary_dict)
-    n_batch=50
-    for epoch in range(21):
+    # epoch=50
+    for epoch_n in range(epoch):
+        pre_index = 0
         for batch in range(n_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
             # 训练一个step
@@ -60,8 +62,8 @@ with tf.Session(config = session_config) as sess:
                 summary_writer.add_summary(summary_str, step)
 
         # 保存model
-        if (((epoch + 1) % 5)) == 0:
+        if (((epoch_n + 1) % 5)) == 0:
             print('saving movdel.......')
-            saver.save(sess,os.path.join(ckpt,'model_{}.ckpt'.format(epoch)), global_step=global_step)
+            saver.save(sess,os.path.join(ckpt,'model_{}.ckpt'.format(epoch_n)), global_step=global_step)
 
     cfg.stop_threads(coord,threads)

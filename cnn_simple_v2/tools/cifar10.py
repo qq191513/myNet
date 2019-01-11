@@ -95,7 +95,7 @@ def prepare_data(dataset_root):
     download_data()
     data_dir = dataset_root
     image_dim = image_size * image_size * img_channels
-    meta = unpickle(data_dir + '/batches.meta')
+    meta = unpickle(os.path.join(data_dir ,'batches.meta'))
 
     label_names = meta[b'label_names']
     label_count = len(label_names)

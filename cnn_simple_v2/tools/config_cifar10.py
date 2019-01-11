@@ -3,18 +3,19 @@ import os
 
 ###############################     cifar10 改这里    ####################################
 project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
-project_name = 'cnn_simple_v2'
+output_path = '/home/mo/work/output'
+dataset_path = '/home/mo/work/data_set/cifar-10-batches-py/'
+branch_name = 'cnn_simple_v2'
 dataset_name = 'cifar10'
 model_name = 'basic_cnn'
 batch_size= 32
 epoch  = 150
 input_shape= (batch_size,32,32,3)
 num_class = 10
-dataset_root =os.path.join(project_root,'data','cifar-10-batches-py')
 ##############################      end    ########################################
 
-logdir = os.path.join(project_root,'output',project_name,model_name,dataset_name,'logdir')
-ckpt =os.path.join(project_root,'output',project_name,model_name,dataset_name)
+ckpt =os.path.join(output_path,branch_name,model_name,dataset_name)
+logdir = os.path.join(ckpt,'logdir')
 
 def get_files_list(path):
     # work：获取所有文件的完整路径
