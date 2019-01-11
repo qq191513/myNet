@@ -7,7 +7,12 @@ ckpt =cfg.ckpt
 # 每个批次的大小
 batch_size = cfg.batch_size
 session_config = cfg.set_gpu()
-
+#技术暂时不够、命令下载总是各种BUG,先手工wget命令下载到MNIST_data文件夹
+# downlaod_list = ['http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+#             'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+#             'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+#             'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
+#             ]
 with tf.Session(config = session_config) as sess:
     mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
     # 计算有多少批次
