@@ -1,17 +1,20 @@
 import tensorflow as tf
 import os
 
-###############################    mnist 改这里    ####################################
+###############################     cifar10 改这里    ####################################
 project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
+dataset_path = '/home/mo/work/data_set/asl/'
 output_path = '/home/mo/work/output'
-dataset_path = '/home/mo/work/data_set/MNIST_data/'
 branch_name = 'cnn_simple_v2'
-dataset_name = 'mnist'
-model_name = 'basic_cnn'
+model_name = 'cnn_asl'
+dataset_name = 'asl'
 batch_size= 32
 epoch  = 150
-input_shape= (batch_size,28,28,1)
-num_class = 10
+input_shape= (batch_size,28,28,3)
+num_class = 36
+train_number = 2165
+test_number = 350
+
 ##############################      end    ########################################
 
 ckpt =os.path.join(output_path,branch_name,model_name,dataset_name)
@@ -170,6 +173,7 @@ def get_acc(prediction,y):
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     return accuracy
 
-def print_message(step,loss_value,acc_value):
-    message = ('step=%d ' % step + ' loss=%0.3f' % loss_value + ' acc=%0.3f' % acc_value)
+def print_message(epoch_n,step,loss_value,acc_value):
+    message = ('epoch_n=%d ' % epoch_n + 'step=%d ' % step +
+               'loss=%0.3f ' % loss_value +'acc=%0.3f ' % acc_value)
     print(message)
