@@ -2,10 +2,11 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import sys
 sys.path.append('../')
-from model.basic_cnn import cnn
 import tools.config_mnist as cfg
+import tools.development_kit as dk
 import os
 ###############################     改这里    ####################################
+from model.basic_cnn import cnn_mnist
 ckpt =cfg.ckpt
 # 每个批次的大小
 batch_size = cfg.batch_size
@@ -13,6 +14,7 @@ input_shape = cfg.input_shape
 class_num = cfg.num_class
 dataset_path =cfg.dataset_path
 epoch = cfg.epoch
+logdir = cfg.logdir
 ##############################      end    ########################################
 
 
@@ -24,7 +26,7 @@ epoch = cfg.epoch
 #             ]
 
 os.makedirs(ckpt,exist_ok=True)
-session_config = cfg.set_gpu()
+session_config = dk.set_gpu()
 with tf.Session(config = session_config) as sess:
     mnist = input_data.read_data_sets(dataset_path, one_hot=True)
     # 计算有多少批次
@@ -32,20 +34,20 @@ with tf.Session(config = session_config) as sess:
     # 构建网络
     x = tf.placeholder(tf.float32, [None, 784])
     y = tf.placeholder(tf.float32, [None, class_num])
-    prediction = cnn(x, keep_prob=0.8)
+    prediction = cnn_mnist(x, keep_prob=0.8)
     # 求loss
-    loss = cfg.cross_entropy_loss(prediction, y)
+    loss = dk.cross_entropy_loss(prediction, y)
     # 设置优化器
-    global_step, train_step = cfg.set_optimizer(num_batches_per_epoch=n_batch, loss=loss)
+    global_step, train_step = dk.set_optimizer(num_batches_per_epoch=n_batch, loss=loss)
     # 求acc
-    accuracy = cfg.get_acc(prediction, y)
+    accuracy = dk.get_acc(prediction, y)
     # 初始化变量
-    coord, threads = cfg.init_variables_and_start_thread(sess)
+    coord, threads = dk.init_variables_and_start_thread(sess)
     # 恢复model
-    saver = cfg.restore_model(sess,ckpt,restore_model =False)
+    saver = dk.restore_model(sess,ckpt,restore_model =False)
     # 设置训练日志
     summary_dict = {'loss':loss,'accuracy':accuracy}
-    summary_writer, summary_op = cfg.set_summary(sess,summary_dict)
+    summary_writer, summary_op = dk.set_summary(sess,logdir,summary_dict)
     # epoch=50
     for epoch_n in range(epoch):
         pre_index = 0
@@ -56,7 +58,7 @@ with tf.Session(config = session_config) as sess:
                 [train_step, loss,accuracy, summary_op,global_step],
                 feed_dict={x: batch_xs, y: batch_ys})
             # 显示结果batch_size
-            cfg.print_message(step,loss_value,acc_value)
+            dk.print_message(epoch_n,step,loss_value,acc_value)
             # 保存summary
             if (step + 1) % 20 == 0:
                 summary_writer.add_summary(summary_str, step)
@@ -66,4 +68,4 @@ with tf.Session(config = session_config) as sess:
             print('saving movdel.......')
             saver.save(sess,os.path.join(ckpt,'model_{}.ckpt'.format(epoch_n)), global_step=global_step)
 
-    cfg.stop_threads(coord,threads)
+    dk.stop_threads(coord,threads)
