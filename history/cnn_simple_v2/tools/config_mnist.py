@@ -1,10 +1,21 @@
 import tensorflow as tf
 import os
-import pandas as pd
-from matplotlib import pyplot as plt
-from scipy import interpolate
-import os
-import numpy as np
+
+###############################    mnist 改这里    ####################################
+project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
+output_path = '/home/mo/work/output'
+dataset_path = '/home/mo/work/data_set/MNIST_data/'
+branch_name = 'cnn_simple_v2'
+dataset_name = 'mnist'
+model_name = 'basic_cnn'
+batch_size= 32
+epoch  = 150
+input_shape= (batch_size,28,28,1)
+num_class = 10
+##############################      end    ########################################
+
+ckpt =os.path.join(output_path,branch_name,model_name,dataset_name)
+logdir = os.path.join(ckpt,'logdir')
 
 def get_files_list(path):
     # work：获取所有文件的完整路径
@@ -106,7 +117,7 @@ def set_optimizer(num_batches_per_epoch = None,loss = None):
 
     return global_step,train_step
 
-def set_summary(sess,logdir,summary_dict):
+def set_summary(sess,summary_dict):
     for key,value in summary_dict.items():
         tf.summary.scalar(key, value)
 
@@ -159,84 +170,6 @@ def get_acc(prediction,y):
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     return accuracy
 
-def print_message(epoch_n,step,loss_value,acc_value):
-    message = ('epoch_n=%d ' % epoch_n + 'step=%d ' % step +
-               'loss=%0.3f ' % loss_value +'acc=%0.3f ' % acc_value)
+def print_message(step,loss_value,acc_value):
+    message = ('step=%d ' % step + ' loss=%0.3f' % loss_value + ' acc=%0.3f' % acc_value)
     print(message)
-
-
-
-def plot_curve(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={}):
-    colors=['r','k','y','c','m','g','b']
-    line_styles= ['^-','+-','x-',':','o','*','s','D','.']
-    # plt.switch_backend('agg')
-    plt.title(setting_dict['title'])
-    plt.xlabel(setting_dict['xlabel'])
-    plt.ylabel(setting_dict['ylabel'])
-    p_legend = []
-    p_legend_name = []
-    y_datas_keys = y_datas_dict.keys()
-    for idx,y_datas_key in enumerate(y_datas_keys):
-        y_data_dict = y_datas_dict[y_datas_key]
-        p, =plt.plot(x, y_data_dict, line_styles[idx], color=colors[idx],scaley=0.3)
-        p_legend.append(p)
-        if y_datas_legend_dict is not None:
-            p_legend_name.append(y_datas_legend_dict[y_datas_key])
-        else:
-            p_legend_name.append(y_datas_key)
-
-    plt.legend(p_legend, p_legend_name, loc='center right')
-
-    plt.grid()
-    plt.savefig(setting_dict['save_name'], dpi=50, format='png')
-    plt.show()
-
-def read_csv(csv_path):
-    #如果是文件夹，则把所有的csv文件读取
-    if os.path.isdir(csv_path):
-        file_list = os.listdir(csv_path)
-        file_list.sort()
-        for file in file_list:
-            data = pd.read_csv(os.path.join(csv_path, file))
-            filename = file.split('.')[0]
-            yield filename, data
-    else:
-        # 如果是csv文件，读取这个csv文件
-        filename = csv_path.split('/')[-1]
-        filename = filename.split('.')[0]
-        data = pd.read_csv(os.path.join(csv_path))
-        yield filename, data
-
-def compress_data(data,compress_number):
-    #必须能整除，如1000个数除以125段
-    divide_time = int(len(data)//compress_number)
-    new_data = []
-    part= []
-    for i in range(len(data)):
-        part.append(data[i]) #慢慢存够divide_time个数据
-        if (i+1) % divide_time ==0:#每divide_time个做一组取平均值
-            new_data.append(np.mean(part))
-            part=[] #清空
-    return new_data
-
-def interpolate_data(y, compress_number=None):
-    # 数据插值法,由大量数据压缩成小量数据
-    x = range(0, len(y))
-    func = interpolate.interp1d(x, y, kind='zero')
-    x = np.arange(0, compress_number, 1)
-    y = func(x)
-    return x, y
-
-def show_parament_numbers():
-    from functools import reduce
-    from operator import mul
-    def get_num_params():
-        num_params = 0
-        for variable in tf.trainable_variables():
-            shape = variable.get_shape()
-            num_params += reduce(mul, [dim.value for dim in shape], 1)
-        return num_params
-    print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxx parament numbers is : %d' % get_num_params())
-    print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-    print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-    print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxx')

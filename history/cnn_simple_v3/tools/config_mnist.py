@@ -14,5 +14,5 @@ input_shape= (batch_size,28,28,1)
 num_class = 10
 ##############################      end    ########################################
 
-ckpt =os.path.join(output_path,branch_name,model_name)
+ckpt =os.path.join(output_path,branch_name,model_name,dataset_name)
 logdir = os.path.join(ckpt,'logdir')
