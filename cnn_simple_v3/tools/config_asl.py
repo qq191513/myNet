@@ -10,8 +10,9 @@ model_name = 'cnn_L4'
 dataset_name = 'asl'
 batch_size= 32
 epoch  = 150
-input_shape= (batch_size,28,28,3)
 num_class = 36
+input_shape= [batch_size,28,28,3]
+label_shape= [batch_size,num_class]
 train_number = 2165
 test_number = 350
 ##############################      end    ########################################

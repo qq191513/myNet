@@ -164,7 +164,10 @@ def print_message(epoch_n,step,loss_value,acc_value):
                'loss=%0.3f ' % loss_value +'acc=%0.3f ' % acc_value)
     print(message)
 
-
+def print_tensor(tensor,message=None):
+	if message is None:
+		message = 'Debug '
+	return tf.Print(tensor, [tensor], message=message+': ', summarize=150)
 
 def plot_curve(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={}):
     colors=['r','k','y','c','m','g','b']

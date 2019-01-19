@@ -14,11 +14,11 @@ import tools.config_isl as cfg
 ##############################      end    #######################################
 
 ###############################     set    ####################################
-from model.basic_cnn import cnn_L4
+from model.basic_cnn import cnn_L4 as model
 ckpt =cfg.ckpt
-dataset_path =cfg.dataset_path
 batch_size = cfg.batch_size
 input_shape = cfg.input_shape
+label_shape = cfg.label_shape
 class_num = cfg.num_class
 epoch = cfg.epoch
 train_number = cfg.train_number
@@ -35,13 +35,13 @@ os.makedirs(ckpt,exist_ok=True)
 session_config = dk.set_gpu()
 
 with tf.Session(config = session_config) as sess:
+    #入口
     train_x, train_y = create_inputs(is_train)
     train_y = tf.one_hot(train_y, depth=class_num, axis=1, dtype=tf.float32)
-
+    x = tf.placeholder(tf.float32, shape=input_shape)
+    y = tf.placeholder(tf.float32, shape=label_shape)
     # 构建网络
-    x = tf.placeholder(tf.float32, shape=[input_shape[0], input_shape[1], input_shape[2], input_shape[3]])
-    y = tf.placeholder(tf.float32, shape=[input_shape[0], class_num])
-    prediction = cnn_L4(x, input_shape,class_num,keep_prob=0.8)
+    prediction = model(x, input_shape,class_num,keep_prob=0.8)
     # 求loss
     loss = dk.cross_entropy_loss(prediction, y)
     # 设置优化器
@@ -57,10 +57,12 @@ with tf.Session(config = session_config) as sess:
     saver = dk.restore_model(sess,ckpt,restore_model =restore_model)
     # 显示参数量
     dk.show_parament_numbers()
+    # 若恢复model，则重新计算start_epoch继续
     start_epoch = 0
     if restore_model:
         step = sess.run(global_step)
         start_epoch = int(step/n_batch_train/save_epoch_n)*save_epoch_n
+    # 训练loop
     for epoch_n in range(start_epoch,epoch):
         for n_batch in range(n_batch_train):
             batch_x, batch_y = sess.run([train_x, train_y])
