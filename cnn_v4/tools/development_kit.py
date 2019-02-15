@@ -207,9 +207,10 @@ def plot_curve(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={}):
     colors=['r','k','y','c','m','g','b']
     line_styles= ['^-','+-','x-',':','o','*','s','D','.']
     # plt.switch_backend('agg')
-    plt.title(setting_dict['title'])
-    plt.xlabel(setting_dict['xlabel'])
-    plt.ylabel(setting_dict['ylabel'])
+    font = {'size': 18}
+    plt.title(setting_dict['title'],fontdict=font)
+    plt.xlabel(setting_dict['xlabel'],fontdict=font)
+    plt.ylabel(setting_dict['ylabel'],fontdict=font)
     p_legend = []
     p_legend_name = []
     y_datas_keys = y_datas_dict.keys()
