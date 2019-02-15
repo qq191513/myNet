@@ -203,11 +203,13 @@ def print_tensor(tensor,message=None):
 		message = 'Debug '
 	return tf.Print(tensor, [tensor], message=message+': ', summarize=150)
 
+
 def plot_curve(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={}):
     colors=['r','k','y','c','m','g','b']
     line_styles= ['^-','+-','x-',':','o','*','s','D','.']
     # plt.switch_backend('agg')
-    font = {'size': 18}
+    # 英文显示
+    font = {'size':20}
     plt.title(setting_dict['title'],fontdict=font)
     plt.xlabel(setting_dict['xlabel'],fontdict=font)
     plt.ylabel(setting_dict['ylabel'],fontdict=font)
@@ -224,9 +226,43 @@ def plot_curve(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={}):
             p_legend_name.append(y_datas_key)
 
     plt.legend(p_legend, p_legend_name, loc='center right')
-
     plt.grid()
-    plt.savefig(setting_dict['save_name'], dpi=50, format='png')
+    plt.savefig(setting_dict['save_name'], dpi=100, format='png')
+    plt.show()
+
+from matplotlib.font_manager import FontProperties
+def plot_curve_chinese_font(x,y_datas_dict,y_datas_legend_dict = None,setting_dict={},chinese_ttf=None):
+    colors=['r','k','y','c','m','g','b']
+    line_styles= ['^-','+-','x-',':','o','*','s','D','.']
+    # plt.switch_backend('agg')
+    # 英文显示
+    # font = {'size':30}
+    # plt.title(setting_dict['title'],fontdict=font)
+    # plt.xlabel(setting_dict['xlabel'],fontdict=font)
+    # plt.ylabel(setting_dict['ylabel'],fontdict=font)
+
+    # 中文显示，从window的C:\Windows\Fonts里面挑选一个喜欢的字体复制到Linux系统里面，设置好下面的路径
+    myfont = FontProperties(fname=chinese_ttf, size=20)
+    plt.title(setting_dict['title'],fontproperties=myfont)
+    plt.xlabel(setting_dict['xlabel'],fontproperties=myfont)
+    plt.ylabel(setting_dict['ylabel'],fontproperties=myfont)
+
+    p_legend = []
+    p_legend_name = []
+    y_datas_keys = y_datas_dict.keys()
+    for idx,y_datas_key in enumerate(y_datas_keys):
+        y_data_dict = y_datas_dict[y_datas_key]
+        p, =plt.plot(x, y_data_dict, line_styles[idx], color=colors[idx],scaley=0.3)
+        p_legend.append(p)
+        if y_datas_legend_dict is not None:
+            p_legend_name.append(y_datas_legend_dict[y_datas_key])
+        else:
+            p_legend_name.append(y_datas_key)
+
+    myfont = FontProperties(fname=chinese_ttf, size=10)
+    plt.legend(p_legend, p_legend_name, loc='center right',prop=myfont)
+    plt.grid()
+    plt.savefig(setting_dict['save_name'], dpi=500, format='png')
     plt.show()
 
 def read_csv(csv_path):
