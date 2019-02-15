@@ -235,11 +235,6 @@ def plot_curve_chinese_font(x,y_datas_dict,y_datas_legend_dict = None,setting_di
     colors=['r','k','y','c','m','g','b']
     line_styles= ['^-','+-','x-',':','o','*','s','D','.']
     # plt.switch_backend('agg')
-    # 英文显示
-    # font = {'size':30}
-    # plt.title(setting_dict['title'],fontdict=font)
-    # plt.xlabel(setting_dict['xlabel'],fontdict=font)
-    # plt.ylabel(setting_dict['ylabel'],fontdict=font)
 
     # 中文显示，从window的C:\Windows\Fonts里面挑选一个喜欢的字体复制到Linux系统里面，设置好下面的路径
     myfont = FontProperties(fname=chinese_ttf, size=20)
