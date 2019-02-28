@@ -1,8 +1,8 @@
 import tensorflow as tf
 import sys
 sys.path.append('../')
-from tools.cifar10 import *
-import tools.config_cifar10 as cfg
+from tools.use_cifar10 import *
+import config.config_cifar10 as cfg
 import os
 import tools.development_kit as dk
 ###############################     改这里    ####################################

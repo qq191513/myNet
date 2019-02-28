@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import sys
 sys.path.append('../')
-import tools.config_mnist as cfg
+import config.config_mnist as cfg
 import tools.development_kit as dk
 import os
 ###############################     改这里    ####################################

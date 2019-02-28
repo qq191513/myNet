@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import cv2
 import time
-import tools.config_asl as cfg
+import config.config_asl as cfg
 preprocess_paraments={}
 example_name = {}
 

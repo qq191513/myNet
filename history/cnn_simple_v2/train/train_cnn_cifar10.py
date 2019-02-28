@@ -1,9 +1,9 @@
 import tensorflow as tf
 import sys
 sys.path.append('../')
-from tools.cifar10 import *
+from tools.use_cifar10 import *
 from model.basic_cnn import cnn_cifar10
-import tools.config_cifar10 as cfg
+import config.config_cifar10 as cfg
 import os
 
 ###############################     改这里    ####################################

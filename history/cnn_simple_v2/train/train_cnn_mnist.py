@@ -3,7 +3,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import sys
 sys.path.append('../')
 from model.basic_cnn import cnn
-import tools.config_mnist as cfg
+import config.config_mnist as cfg
 import os
 ###############################     改这里    ####################################
 ckpt =cfg.ckpt

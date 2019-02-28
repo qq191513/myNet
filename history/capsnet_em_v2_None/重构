@@ -1,0 +1,1 @@
+#拿capsnet_em训练好的logdir过来，lr 把改成1e-1~1e-5 0.9再训练150个epoch
