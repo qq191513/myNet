@@ -13,7 +13,7 @@ import daiquiri
 daiquiri.setup(level=logging.DEBUG)
 logger = daiquiri.getLogger(__name__)
 import capsnet_em as net
-from plot_confusion_matrix import plot_confusion
+from confusion_matrix_API import plot_confusion
 import matplotlib.pyplot as plt
 
 ####################   改这里  ##########################################

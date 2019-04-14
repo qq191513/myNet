@@ -21,18 +21,18 @@
 # ##############################      end    #######################################
 
 ##############################    用 isl数据集 普通cnn模型 改这里    ################################
-# from tools.use_isl_tfrecord import create_inputs_isl as create_inputs
-# import config.config_isl as cfg
-# from model.basic_cnn import cnn_L4 as model
-# restore_model=False
+from tools.use_isl_tfrecord import create_inputs_isl as create_inputs
+import config.config_isl as cfg
+from model.basic_cnn import cnn_L4 as model
+restore_model=True
 #############################      end    #######################################
 
 
 # ###############################    用 asl数据集 densenet模型改这里    ################################
-from tools.use_asl_tfrecord import create_inputs_asl as create_inputs
-import config.config_dense_asl as cfg
-from model.densenet import dense_net as model
-restore_model=False
+# from tools.use_asl_tfrecord import create_inputs_asl as create_inputs
+# import config.config_dense_asl as cfg
+# from model.densenet import dense_net as model
+# restore_model=True
 # ##############################      end    #######################################
 
 

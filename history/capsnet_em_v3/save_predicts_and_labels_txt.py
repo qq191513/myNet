@@ -76,29 +76,13 @@ def main(args):
                 np_predicts_list.extend(np_results)
                 np_lables_list.extend(np_labels)
 
-            # 7、根据step 6求得混淆矩阵
-            labels = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f',
-                      'g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-            # labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
-            #           '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35']
-
-            np_predicts_list = conver_number_to_label_name(np_predicts_list,labels_maps)
-            np_lables_list = conver_number_to_label_name(np_lables_list,labels_maps)
-
-            cm=confusion_matrix(y_true=np_predicts_list, y_pred=np_lables_list)
-            print(cm)
-            # cmap =  plt.cm.binary
-            cmap =  plt.cm.binary
-            cmap = 'Accent_r'
-            font_dict = {
-                'xlabel': 10, 'ylabel': 10,
-                'xticklabels': 6, 'yticklabels': 6,
-                'rate_fontsize': 5.3
-            }
-            plot_confusion(cm, title='Normalized confusion matrix',
-                        labels =labels ,cmap=cmap,savefig='confusion_matrix.png',font_dict=font_dict )
-
-
+            np_predicts_list_str = str(np_predicts_list)
+            np_lables_list_str = str(np_lables_list)
+            with open('predicts_and_labels.txt','w') as f:
+                f.write('predicts\r\n')
+                f.write(np_predicts_list_str + '\r\n')
+                f.write('labels\r\n')
+                f.write(np_lables_list_str + '\r\n')
 
             cfg.stop_threads(coord,threads)
 

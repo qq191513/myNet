@@ -16,6 +16,19 @@ setting_dict = collections.OrderedDict()
 # setting_dict['ylabel'] = 'accuracy'
 #####################   end     #######################
 
+##################### asl acc chinese 改这里   ######################
+# csv_path = 'csv_file/asl_acc_chinese/'   #画出CSV文件夹下所有的CSV文件或指定画哪个CSV文件
+# csv_values = 'Value'   #读取CSV文件的哪一列
+# compress_number = 50  #10000个数据压缩成125个
+# axis_x = 150    #显示的x轴坐标范围
+# # setting_dict['title'] = 'ASL数据集不同算法的手势图像识别准确率比较'
+# setting_dict['title'] = '  '
+# setting_dict['xlabel'] = '训练轮数'
+# setting_dict['ylabel'] = '手势图像识别准确率'
+# chinese_ttf = os.path.join('/home/mo/tool/font/SIMKAI.TTF')
+# chinse_show =True
+####################   end     #######################
+
 ###################### italy 改这里   ######################
 # csv_path = 'csv_file/italy_acc/'   #画出CSV文件夹下所有的CSV文件或指定画哪个CSV文件
 # csv_values = 'Value'   #读取CSV文件的哪一列
@@ -29,14 +42,15 @@ setting_dict = collections.OrderedDict()
 
 
 
-###################### italy chinse 改这里   ######################
+###################### italy chinese 改这里   ######################
 csv_path = 'csv_file/italy_acc_chinese/'   #画出CSV文件夹下所有的CSV文件或指定画哪个CSV文件
 csv_values = 'Value'   #读取CSV文件的哪一列
 compress_number = 50  #10000个数据压缩成125个
 axis_x = 150    #显示的x轴坐标范围
-setting_dict['title'] = '不同算法的手势识别正确率比较'
+# setting_dict['title'] = 'ISL数据集不同算法的手势识别正确率比较'
+setting_dict['title'] = ' '
 setting_dict['xlabel'] = '训练轮数'
-setting_dict['ylabel'] = '正确率'
+setting_dict['ylabel'] = '手势图像识别准确率'
 chinese_ttf = os.path.join('/home/mo/tool/font/SIMKAI.TTF')
 chinse_show =True
 #####################   end     #######################

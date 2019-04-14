@@ -2,7 +2,7 @@
 
 
 if __name__=='__main__':
-    choice = 4
+    choice = 3
     if choice == 1:# 1、训练mnist数据集
         from train.trainer_for_mnist import train_mnist_model
         train_mnist_model()
