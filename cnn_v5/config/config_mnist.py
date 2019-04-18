@@ -4,7 +4,7 @@ import os
 ###############################    mnist 改这里    ####################################
 project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
 output_path = '/home/mo/work/output'
-branch_name = 'cnn_simple_v3'
+branch_name = 'cnn_v5'
 dataset_path = '/home/mo/work/data_set/MNIST_data/'
 model_name = 'cnn_mnist'
 dataset_name = 'mnist'

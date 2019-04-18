@@ -5,11 +5,11 @@ import os
 project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
 output_path = '/home/mo/work/output'
 dataset_path = '/home/mo/work/data_set/cifar-10-batches-py/'
-branch_name = 'cnn_simple_v3'
+branch_name = 'cnn_v5'
 model_name = 'cnn_cifar10'
 dataset_name = 'cifar10'
 batch_size= 32
-epoch  = 150
+epoch  = 10
 num_class = 10
 input_shape= (batch_size,32,32,3)
 label_shape= [batch_size,num_class]

@@ -47,7 +47,7 @@ def train_cifar10_model():
         summary_dict = {'loss':loss,'accuracy':accuracy}
         summary_writer, summary_op = dk.set_summary(sess,logdir,summary_dict)
         # 恢复model
-        saver = dk.restore_model(sess,ckpt,restore_model =False)
+        saver,start_epoch = dk.restore_model(sess,ckpt,restore_model =False)
         # 显示参数量
         dk.show_parament_numbers()
         start_epoch = 0

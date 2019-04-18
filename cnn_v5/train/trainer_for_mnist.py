@@ -52,7 +52,7 @@ def train_mnist_model():
         # 初始化变量
         coord, threads = dk.init_variables_and_start_thread(sess)
         # 恢复model
-        saver = dk.restore_model(sess,ckpt,restore_model =False)
+        saver,start_epoch = dk.restore_model(sess,ckpt,restore_model =False)
         # 设置训练日志
         summary_dict = {'loss':loss,'accuracy':accuracy}
         summary_writer, summary_op = dk.set_summary(sess,logdir,summary_dict)
