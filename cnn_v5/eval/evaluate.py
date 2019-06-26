@@ -77,3 +77,7 @@ def evaluate_result():
         result = np.mean(acc_list)
         print('final result: ',result)
         dk.stop_threads(coord,threads)
+
+
+if __name__=='__main__':
+    evaluate_result()

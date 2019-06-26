@@ -2,7 +2,7 @@ import tensorflow as tf
 import os
 
 ###############################     cifar10 改这里    ####################################
-project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
+# project_root = '/home/mo/work/caps_face/Matrix-Capsules-EM-Tensorflow-master/'
 dataset_path = '/home/mo/work/data_set/asl/'
 output_path = '/home/mo/work/output'
 branch_name = 'cnn_v4'

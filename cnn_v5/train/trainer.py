@@ -79,5 +79,4 @@ def train_model():
             if (((epoch_n + 1) % save_epoch_n)) == 0:
                 print('epoch_n :{} saving movdel.......'.format(epoch_n))
                 saver.save(sess,os.path.join(ckpt,'model_{}.ckpt'.format(epoch_n)), global_step=global_step)
-
         dk.stop_threads(coord,threads)
